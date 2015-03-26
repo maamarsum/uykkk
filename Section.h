@@ -11,5 +11,5 @@
 
 @property (nonatomic, strong) NSMutableArray *sectionRows;
 @property (nonatomic) BOOL open;
-
+//new line
 @end

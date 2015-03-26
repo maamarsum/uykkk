@@ -51,7 +51,7 @@
 @synthesize AuthenticationServer,lbprice,lbmanufacturer,lbname,labelDescription,getproduct_id,imageViewProductImage,arrayDealsDetails,JsonArray,textViewQuantity,didTappedBuy,producttable,Scrollview,reviewtable;
 
 @synthesize textview,textfieldreview,textfieldreviewname;
-
+@synthesize expandview;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -65,6 +65,8 @@
 {
     [super viewDidLoad];
     
+    
+    [expandview setHidden:YES];
     self.navigationController.tabBarController.tabBar.hidden=NO;
     
     
@@ -386,8 +388,21 @@
     
     - (IBAction)Buttonbuynow:(id)sender {
         
+        UIButton *button=sender;
+        if (button.tag == 0) {
+            [expandview setHidden:NO];
+            button.tag=1;
+        }else if (button.tag == 1){
+            
+            [expandview setHidden:YES];
+            button.tag=0;
+        }
         
         
+        /*
+        
+         
+         
         if ([CredentialManager FetchCredentailsSavedOffline]) {
             
             
@@ -409,11 +424,12 @@
         }
         
         
-        
+        */
         
         
         // [self performSegueWithIdentifier:@"HomeToGeneralAccountInfoSegue" sender:nil];
     }
+         
     
     - (IBAction)Buttonaddreview:(id)sender {
         

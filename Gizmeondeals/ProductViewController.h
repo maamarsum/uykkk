@@ -32,6 +32,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *textfieldreview;
 
 @property BOOL didTappedBuy;
+@property (strong, nonatomic) IBOutlet UIView *expandview;
 
 
 @property(nonatomic,retain)NSMutableArray *arrayDealsDetails;

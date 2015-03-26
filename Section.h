@@ -8,8 +8,8 @@
 @property (nonatomic, strong) Processsectionheaderview *newsectionHeaderView;
 @property (nonatomic, strong) NSString *sectionHeader;
 @property (nonatomic, strong) NSString * sectionname;
-
+//example
 @property (nonatomic, strong) NSMutableArray *sectionRows;
 @property (nonatomic) BOOL open;
-//new line
+
 @end

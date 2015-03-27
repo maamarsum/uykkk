@@ -14,9 +14,11 @@
 @interface ProductViewController : UIViewController<UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,SectionHeaderViewDelegate,UIScrollViewDelegate,SlideNavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UILabel *lbname;
 @property (strong, nonatomic) IBOutlet UILabel *labelDescription;
-@property (strong, nonatomic) IBOutlet UILabel *lbmanufacturer;
+@property (strong, nonatomic) IBOutlet UILabel *lbrating;
 @property (strong, nonatomic) IBOutlet UITextField *textViewQuantity;
 @property (strong, nonatomic) IBOutlet UILabel *lbprice;
+@property (strong, nonatomic) IBOutlet UILabel *lbspecialprice;
+@property (strong, nonatomic) IBOutlet UILabel *lbAvailability;
 @property (strong, nonatomic) IBOutlet UIImageView *imageViewProductImage;
 @property (strong, nonatomic) IBOutlet UITableView *producttable;
 @property (strong, nonatomic) IBOutlet UITableView *reviewtable;
@@ -34,6 +36,7 @@
 @property BOOL didTappedBuy;
 @property (strong, nonatomic) IBOutlet UIView *expandview;
 
+@property (strong, nonatomic) IBOutlet UITextView *textviewfield;
 
 @property(nonatomic,retain)NSMutableArray *arrayDealsDetails;
 @property (strong,nonatomic) BinSystemsServerConnectionHandler * AuthenticationServer;

@@ -10,7 +10,7 @@
 
 @implementation ModelProduct
 
-@synthesize productId,productImage,productModel,productName,productPrice,productImageUrl,productDescription,productManufacturer,productQuantity,productThumbImage,productFeatures,productCartNumberOfItems,productAuthor,productRating,productReviewText,productDateAndTime,productReviewId;
+@synthesize productId,productImage,productModel,productName,productPrice,productImageUrl,productDescription,productManufacturer,productQuantity,productThumbImage,productFeatures,productCartNumberOfItems,productAuthor,productRating,productReviewText,productDateAndTime,productReviewId,productSpecilaprice,productAvailability;
 - (id)initWithCoder:(NSCoder *)decoder {
     
     //Here encoder and decoder are used to store this class in userdefaults
@@ -31,6 +31,7 @@
         productRating = [decoder decodeObjectForKey:@"rating"];
         productFeatures = [decoder decodeObjectForKey:@"features"];
         productCartNumberOfItems = [decoder decodeObjectForKey:@"numberOfSelection"];
+        productSpecilaprice = [decoder decodeObjectForKey:@"special"];
     }
     return self;
 }
@@ -51,5 +52,6 @@
     [encoder encodeObject:productRating forKey:@"rating"];
     [encoder encodeObject:productFeatures forKey:@"features"];
     [encoder encodeObject:productCartNumberOfItems forKey:@"numberOfSelection"];
+    [encoder encodeObject:productCartNumberOfItems forKey:@"special"];
 }
 @end

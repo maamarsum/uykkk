@@ -155,9 +155,12 @@
                     product.productId= [productDetails valueForKey:@"product_id"];
                     product.productName=[productDetails valueForKey:@"name"];
                     product.productPrice=[productDetails valueForKey:@"price"];
+                    product.productSpecilaprice=[productDetails valueForKey:@"special"];
                     product.productModel=[productDetails valueForKey:@"model"];
                     product.productImageUrl=[productDetails valueForKey:@"image"];
-                    
+                    product.productDescription=[productDetails valueForKey:@"description"];
+                    NSLog(@"description %@",product.productDescription);
+                    NSLog(@"name %@",product.productName);
                     [arrayRecentDeals addObject:product];
                     
                     
@@ -233,6 +236,9 @@
                     product.productPrice=[productDetails valueForKey:@"price"];
                     product.productModel=[productDetails valueForKey:@"model"];
                     product.productImageUrl=[productDetails valueForKey:@"image"];
+                    product.productDescription=[productDetails valueForKey:@"description"];
+                    product.productSpecilaprice=[productDetails valueForKey:@"special"];
+                    NSLog(@"description %@",product.productDescription);
                     
                     [arrayMyDeals addObject:product];
                     

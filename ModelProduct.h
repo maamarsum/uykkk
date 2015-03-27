@@ -14,6 +14,8 @@
 @property UIImage *productThumbImage;
 @property NSString *productName;
 @property NSString *productPrice;
+@property NSString *productSpecilaprice;
+@property NSString *productAvailability;
 @property NSString *productId;
 @property NSString *productModel;
 @property NSString *productImageUrl;

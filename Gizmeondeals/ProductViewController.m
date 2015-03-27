@@ -48,10 +48,10 @@
 
 @implementation ProductViewController
 @synthesize sectionArray;
-@synthesize AuthenticationServer,lbprice,lbmanufacturer,lbname,labelDescription,getproduct_id,imageViewProductImage,arrayDealsDetails,JsonArray,textViewQuantity,didTappedBuy,producttable,Scrollview,reviewtable;
+@synthesize AuthenticationServer,lbprice,lbrating,lbname,labelDescription,getproduct_id,imageViewProductImage,arrayDealsDetails,JsonArray,textViewQuantity,didTappedBuy,producttable,Scrollview,reviewtable,lbspecialprice,lbAvailability;
 
 @synthesize textview,textfieldreview,textfieldreviewname;
-@synthesize expandview;
+@synthesize expandview,textviewfield;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -66,6 +66,11 @@
     [super viewDidLoad];
     
     
+   
+    
+    
+    [lbname setFont:[UIFont boldSystemFontOfSize:20]];
+    [lbrating setFont:[UIFont boldSystemFontOfSize:30]];
     [expandview setHidden:YES];
     self.navigationController.tabBarController.tabBar.hidden=NO;
     
@@ -103,11 +108,9 @@
     
     imageViewProductImage.layer.borderWidth=2;
     imageViewProductImage.layer.cornerRadius=2;
-    imageViewProductImage.layer.borderColor=[UIColor whiteColor].CGColor;
+    imageViewProductImage.layer.borderColor=[UIColor blackColor].CGColor;
     didTappedBuy = false;
-    tabledata = [NSArray arrayWithObjects: @"Description", @"Specification",
-                 
-                 nil];
+    
     
     resignKeyboard = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyBoard)];
     [self.view addGestureRecognizer:resignKeyboard];
@@ -115,6 +118,28 @@
     textViewQuantity.delegate = self;
     
     [self loadProductDetails];
+    
+    
+}
+- (IBAction)discriptionButtonAction:(id)sender{
+    
+    
+    UIButton *button=sender;
+    if (button.tag == 0) {
+        [expandview setHidden:NO];
+        button.tag=1;
+    }else if (button.tag == 1){
+        
+        [expandview setHidden:YES];
+        button.tag=0;
+    }
+    
+}
+
+
+-(void)descriptionviewDetails{
+    
+    
     
     
 }
@@ -142,13 +167,18 @@
         
         
         lbprice.text =  product.productPrice;
+        NSLog(@"price %@",product.productPrice);
         lbname.text = product.productName;
-        
+        lbspecialprice.text=product.productSpecilaprice;
         textViewQuantity.text=product.productQuantity;
-        labelDescription.text =  product.productDescription;
+        textviewfield.text =  product.productDescription;
+        lbAvailability.text =  @"out of stock";
+        lbrating.text =  @"****";
+         NSLog(@"desscription %@",product.productDescription);
         getproduct_id=product.productId;
         NSLog(@"productis %@",getproduct_id);
         NSLog(@"%@",product.productImageUrl);
+        
         NSLog(@"%@",product.productImage);
         
         if (product.productImage==nil) {

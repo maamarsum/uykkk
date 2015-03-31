@@ -14,7 +14,7 @@
 @property UIImage *productThumbImage;
 @property NSString *productThumbImageUrl;
 @property NSString *productName;
-@property NSString *productPrice;
+@property NSString *productPrice;                      //changed by maaz
 @property NSString *productSpecilaprice;
 @property NSString *productAvailability;
 @property NSString *productId;

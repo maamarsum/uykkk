@@ -22,7 +22,7 @@
         productPrice = [decoder decodeObjectForKey:@"price"];
         productImageUrl = [decoder decodeObjectForKey:@"imageurl"];
         productDescription = [decoder decodeObjectForKey:@"description"];
-        productManufacturer = [decoder decodeObjectForKey:@"manufacturer"];
+        productManufacturer = [decoder decodeObjectForKey:@"manufacturer"];      //changed
         productQuantity = [decoder decodeObjectForKey:@"quantity"];
         productThumbImage = [decoder decodeObjectForKey:@"thumbimage"];
         productReviewName= [decoder decodeObjectForKey:@"author"];

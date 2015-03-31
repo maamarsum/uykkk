@@ -28,15 +28,19 @@
 @property (nonatomic, assign) NSInteger openSectionIndex;
 @property (nonatomic, retain) IBOutlet UITextView *textview;
 @property (weak, nonatomic) IBOutlet UIScrollView *Scrollview;
+@property (strong, nonatomic) IBOutlet UIButton *buttonspecification;
+@property (strong, nonatomic) IBOutlet UILabel *reviewrating;
 
 @property (strong, nonatomic) ModelProduct *thisProduct;
 @property (strong, nonatomic) IBOutlet UITextField *textfieldreviewname;
-@property (strong, nonatomic) IBOutlet UITextField *textfieldreview;
+
 
 @property BOOL didTappedBuy;
 @property (strong, nonatomic) IBOutlet UIView *expandview;
+@property (strong, nonatomic) IBOutlet UIView *ReviewView;
 
 @property (strong, nonatomic) IBOutlet UITextView *textviewfield;
+@property (strong, nonatomic) IBOutlet UITextView *textviewreview;
 
 @property(nonatomic,retain)NSMutableArray *arrayDealsDetails;
 @property (strong,nonatomic) BinSystemsServerConnectionHandler * AuthenticationServer;

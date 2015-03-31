@@ -23,9 +23,9 @@
 @property NSString *productManufacturer;
 @property NSString *productQuantity;
 @property NSString *productReviewId;
-@property NSString *productAuthor;
-@property NSString *productRating;
-@property NSString *productDateAndTime;
+@property NSString *productReviewName;
+@property NSString *productReviewRating;
+@property NSString *productReviewDateAndTime;
 @property NSString *productReviewText;
 @property NSString *productFeatures;
 @property NSString *productCartNumberOfItems;

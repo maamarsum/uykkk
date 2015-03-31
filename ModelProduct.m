@@ -10,7 +10,7 @@
 
 @implementation ModelProduct
 
-@synthesize productId,productImage,productModel,productName,productPrice,productImageUrl,productDescription,productManufacturer,productQuantity,productThumbImage,productFeatures,productCartNumberOfItems,productAuthor,productRating,productReviewText,productDateAndTime,productReviewId,productSpecilaprice,productAvailability;
+@synthesize productId,productImage,productModel,productName,productPrice,productImageUrl,productDescription,productManufacturer,productQuantity,productThumbImage,productFeatures,productCartNumberOfItems,productReviewRating,productReviewText,productReviewDateAndTime,productReviewId,productSpecilaprice,productAvailability,productReviewName;
 - (id)initWithCoder:(NSCoder *)decoder {
     
     //Here encoder and decoder are used to store this class in userdefaults
@@ -25,10 +25,11 @@
         productManufacturer = [decoder decodeObjectForKey:@"manufacturer"];
         productQuantity = [decoder decodeObjectForKey:@"quantity"];
         productThumbImage = [decoder decodeObjectForKey:@"thumbimage"];
-        productAuthor= [decoder decodeObjectForKey:@"author"];
-        productDateAndTime = [decoder decodeObjectForKey:@"date_added"];
+        productReviewName= [decoder decodeObjectForKey:@"author"];
+        productReviewId= [decoder decodeObjectForKey:@"reviewid"];
+        productReviewDateAndTime = [decoder decodeObjectForKey:@"date_added"];
         productReviewText = [decoder decodeObjectForKey:@"text"];
-        productRating = [decoder decodeObjectForKey:@"rating"];
+        productReviewRating = [decoder decodeObjectForKey:@"rating"];
         productFeatures = [decoder decodeObjectForKey:@"features"];
         productCartNumberOfItems = [decoder decodeObjectForKey:@"numberOfSelection"];
         productSpecilaprice = [decoder decodeObjectForKey:@"special"];
@@ -46,10 +47,10 @@
     [encoder encodeObject:productManufacturer forKey:@"manufacturer"];
     [encoder encodeObject:productQuantity forKey:@"quantity"];
     [encoder encodeObject:productThumbImage forKey:@"thumbimage"];
-    [encoder encodeObject:productAuthor forKey:@"author"];
-    [encoder encodeObject:productDateAndTime forKey:@"date_added"];
+    [encoder encodeObject:productReviewName forKey:@"author"];
+    [encoder encodeObject:productReviewDateAndTime forKey:@"date_added"];
     [encoder encodeObject:productReviewText forKey:@"text"];
-    [encoder encodeObject:productRating forKey:@"rating"];
+    [encoder encodeObject:productReviewRating forKey:@"rating"];
     [encoder encodeObject:productFeatures forKey:@"features"];
     [encoder encodeObject:productCartNumberOfItems forKey:@"numberOfSelection"];
     [encoder encodeObject:productCartNumberOfItems forKey:@"special"];

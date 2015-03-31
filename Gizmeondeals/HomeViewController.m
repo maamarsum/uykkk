@@ -37,13 +37,7 @@
     NSMutableArray *Jsonarray;
     
     
-    /*
-     home
-     my acc
-     my cart
-     my wishlist
-    
-     */
+   
 }
 
 @end
@@ -238,7 +232,7 @@
                     product.productImageUrl=[productDetails valueForKey:@"image"];
                     product.productDescription=[productDetails valueForKey:@"description"];
                     product.productSpecilaprice=[productDetails valueForKey:@"special"];
-                    NSLog(@"description %@",product.productDescription);
+                   // NSLog(@"description %@",product.productDescription);
                     
                     [arrayMyDeals addObject:product];
                     

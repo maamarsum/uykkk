@@ -287,6 +287,36 @@
 }
 
 
++(NSArray *) convertServerReviewArrayToModelProductArray :(NSArray *) arrayServerData
+
+{
+    NSMutableArray * returnArray = [NSMutableArray new];
+    
+    for (NSDictionary * productDetails in arrayServerData) {
+        
+        ModelProduct * product = [ModelProduct new];
+        
+        product.productReviewId= [productDetails valueForKey:@"review_id"];
+        product.productReviewName=[productDetails valueForKey:@"author"];
+        product.productReviewRating=[productDetails valueForKey:@"rating"];
+        product.productReviewText=[productDetails valueForKey:@"text"];
+        product.productReviewDateAndTime=[productDetails valueForKey:@"date_added"];
+       
+        
+        [returnArray addObject:product];
+        
+        
+    }
+    
+    
+    return returnArray;
+}
+
+
+
+
+
+
 
 
 

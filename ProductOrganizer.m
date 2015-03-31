@@ -9,6 +9,8 @@
 #import "ProductOrganizer.h"
 #import "CredentialManager.h"
 #import "InterfaceManager.h"
+#import "ValidationManger.h"
+
 
 @implementation ProductOrganizer
 
@@ -313,6 +315,25 @@
     return obj;
 }
 
-
++(void) setThumbImageForProduct:(ModelProduct *) product
+{
+    
+//    if ([ValidationManger validateProduct:product]) {
+//        
+//        NSLog(@"Invalid Product for thumbImageRequest");
+//        
+//        return;
+//        
+//    }
+    
+#warning this methode is  made for load thumb nail, for some resons its set to load full image
+    
+    NSURL * imgUrl =[NSURL URLWithString:[kServerPreImageUrl stringByAppendingString:product.productImageUrl]];
+    
+    product.productThumbImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:imgUrl]];
+    
+    
+    
+}
 
 @end

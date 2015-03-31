@@ -169,14 +169,6 @@
     
   //
     
-    
-    
-    
-
-     NSLog(@"Index path = %ld",(long)indexPath.row);
-   
-    
-   
     if (indexPath.row < arrayPopulateTable.count) {
         
         UITableViewCell *cellForProductList= [tableView dequeueReusableCellWithIdentifier:@"HorseList" forIndexPath:indexPath];

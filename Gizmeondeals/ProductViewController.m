@@ -345,6 +345,10 @@
     
     - (IBAction)addtowishlistButtonAction:(id)sender{
         
+        if (![CredentialManager FetchCredentailsSavedOffline]) {
+            
+            
+        
         NSString * wishListArrayKey =@"WishListItems";
         
         NSMutableArray * arrayWishList = [self loadArrayFromUserDefaultsWithKey:wishListArrayKey];
@@ -380,65 +384,72 @@
             
         }
         
+        }else{
+            
+            
+            NSString * userId = [CredentialManager FetchCredentailsSavedOffline][@"UserId"];
+            
+
+            
+           
         
-        //   NSString *customer=@"33";
-        //
-        //    NSString * PostData = [NSString stringWithFormat:@"{\"customerid\":\"%@\",\"wishlist\":\"%@\",}",customer,getproduct_id];
-        //    NSLog(@"request:%@",PostData);
-        //
-        //    AuthenticationServer  = [[BinSystemsServerConnectionHandler alloc]initWithURL:kServerLink_addtowishlist PostData:PostData];
-        //
-        //
-        //
-        //
-        //
-        //
-        //    // specify method in first argument
-        //
-        //
-        //    [AuthenticationServer StartServerConnectionWithCompletionHandler :@"POST":^(NSDictionary *JSONDict) {
-        //
-        //
-        //
-        //        NSMutableArray * Result1 = [JSONDict valueForKey:@""];
-        //
-        //
-        //        if (Result1) {
-        //
-        //            //  [self ShowAlertView:[NSString stringWithFormat:@"Items added to wishlist"]];
-        //
-        //
-        //            NSString * ErroCode;
-        //
-        //            if ([ErroCode isEqualToString:@"403"] ) {
-        //
-        //
-        //            }else
-        //            {
-        //
-        //
-        //                [self ShowAlertView:[NSString stringWithFormat:@"Items added to Cart"]];
-        //
-        //
-        //                }
-        //
-        //
-        //        }
-        //
-        //
-        //    } FailBlock:^(NSString *Error) {
-        //
-        //        [InterfaceManager DisplayAlertWithMessage:ServerConnectioError];
-        //
-        //
-        //    }];
+     //       NSString * PostData = [NSString stringWithFormat:@"{\"customerid\":\"%@\",\"wishlist\":\"%@\",}",customer,getproduct_id];
+            
+            NSString * PostString = [NSString stringWithFormat:@"customerid=%@&wishlist=%@",userId,getproduct_id];
+            
+            AuthenticationServer  = [[BinSystemsServerConnectionHandler alloc]initWithURL:kServerLink_addtowishlist PostData:PostString];
+        
+        
+        
+        
+        
+        
+            // specify method in first argument
+        
+        
+            [AuthenticationServer StartServerConnectionWithCompletionHandler :@"POST":^(NSDictionary *JSONDict) {
+        
+        
+        
+                NSMutableArray * Result1 = [JSONDict valueForKey:@""];
+        
+        
+                if (Result1) {
+        
+                    //  [self ShowAlertView:[NSString stringWithFormat:@"Items added to wishlist"]];
+        
+        
+                    NSString * ErroCode;
+        
+                    if ([ErroCode isEqualToString:@"403"] ) {
+        
+        
+                    }else
+                    {
+        
+        
+                        [self ShowAlertView:[NSString stringWithFormat:@"Items added to WishList"]];
+        
+        
+                        }
+        
+        
+                }
+        
+        
+            } FailBlock:^(NSString *Error) {
+        
+                [InterfaceManager DisplayAlertWithMessage:ServerConnectioError];
+        
+        
+            }];
         
         
     }
     
     
     
-    
+    }
     - (IBAction)Buttonbuynow:(id)sender {
         
         UIButton *button=sender;
@@ -771,7 +782,23 @@
 
     
     -(void) addProductToCart
+
     {
+        if (textViewQuantity.text == nil) {
+            
+            [InterfaceManager DisplayAlertWithMessage:@"Enter Quantity"];
+            
+            [textViewQuantity becomeFirstResponder];
+        }
+        
+        
+        if (![CredentialManager FetchCredentailsSavedOffline]) {
+            
+            
+            
+            
+        
+        
         NSString * cartArrayKey =@"CartItems";
         
         NSMutableArray * arrayCart = [self loadArrayFromUserDefaultsWithKey:cartArrayKey];
@@ -808,7 +835,69 @@
         }
         
         
-        
+        }else{
+            
+            
+            NSString * userId = [CredentialManager FetchCredentailsSavedOffline][@"UserId"];
+            
+            
+            
+            
+            
+            //       NSString * PostData = [NSString stringWithFormat:@"{\"customerid\":\"%@\",\"wishlist\":\"%@\",}",customer,getproduct_id];
+            
+            NSString * PostString = [NSString stringWithFormat:@"profile_id=%@&product_id=%@&quantity=%@",userId,getproduct_id,textViewQuantity.text];
+            
+            AuthenticationServer  = [[BinSystemsServerConnectionHandler alloc]initWithURL:kServerLink_addtokart PostData:PostString];
+            
+            
+            
+            
+            
+            
+            // specify method in first argument
+            
+            
+            [AuthenticationServer StartServerConnectionWithCompletionHandler :@"POST":^(NSDictionary *JSONDict) {
+                
+                
+                
+                NSMutableArray * Result1 = [JSONDict valueForKey:@""];
+                
+                
+                if (Result1) {
+                    
+                    //  [self ShowAlertView:[NSString stringWithFormat:@"Items added to wishlist"]];
+                    
+                    
+                    NSString * ErroCode;
+                    
+                    if ([ErroCode isEqualToString:@"403"] ) {
+                        
+                        
+                    }else
+                    {
+                        
+                        
+                        [self ShowAlertView:[NSString stringWithFormat:@"Items added to Cart"]];
+                        
+                        
+                    }
+                    
+                    
+                }
+                
+                
+            } FailBlock:^(NSString *Error) {
+                
+                [InterfaceManager DisplayAlertWithMessage:ServerConnectioError];
+                
+                
+            }];
+            
+            
+        }
+
         
         
         

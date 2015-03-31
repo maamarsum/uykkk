@@ -20,7 +20,7 @@
 @interface CartViewController (){
     
    
-    NSArray *arrayPopulateTable;
+    NSMutableArray *arrayPopulateTable;
     
     
 }
@@ -68,7 +68,7 @@
 {
     NSString * key =@"CartItems";
     
-    arrayPopulateTable = [self loadArrayFromUserDefaultsWithKey:key];
+    arrayPopulateTable = [ProductOrganizer loadArrayFromUserDefaultsWithKey:key];
     
     if (arrayPopulateTable) {
         
@@ -128,7 +128,7 @@
                 NSArray * jsonArray = [JSONDict valueForKey:@"data"];
                 
                 
-                arrayPopulateTable    =   [ProductOrganizer convertServerArrayToModelProductArray:jsonArray];
+                arrayPopulateTable    =   [[ProductOrganizer convertServerArrayToModelProductArray:jsonArray] mutableCopy];
                 
                 
                 [tableViewCartList reloadData];
@@ -157,13 +157,7 @@
     
     
 }
--(NSMutableArray *)loadArrayFromUserDefaultsWithKey:(NSString*)key
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *myEncodedObject = [defaults objectForKey: key];
-    NSMutableArray* obj = (NSMutableArray*)[NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];
-    return obj;
-}
+
 
 
 //***************************************  Delegates   *************************************************//
@@ -173,44 +167,76 @@
 {
     
     
-  //  mykartTableViewCell *cellForLastCell= (mykartTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"lastCell"];
-    
-    UITableViewCell *cellForHorseList= [tableView dequeueReusableCellWithIdentifier:@"HorseList" forIndexPath:indexPath];
+  //
     
     
     
-   // NSArray *tableCellArray =[[NSBundle mainBundle]loadNibNamed:@"mykartTableViewCell" owner:self options:nil];
     
-    ModelProduct * productObj =  [arrayPopulateTable objectAtIndex:indexPath.row];
-    if ([indexPath row]<arrayPopulateTable.count) {
+
+     NSLog(@"Index path = %ld",(long)indexPath.row);
+   
+    
+   
+    if (indexPath.row < arrayPopulateTable.count) {
         
-        UILabel * labelName = (UILabel*) [cellForHorseList viewWithTag:101];
-        UILabel * labelPrice = (UILabel*) [cellForHorseList viewWithTag:102];
-        UIImageView * imageViewPreview = (UIImageView*) [cellForHorseList viewWithTag:103];
+        UITableViewCell *cellForProductList= [tableView dequeueReusableCellWithIdentifier:@"HorseList" forIndexPath:indexPath];
+
+         ModelProduct * productObj =  [arrayPopulateTable objectAtIndex:indexPath.row];
+        UILabel * labelName = (UILabel*) [cellForProductList viewWithTag:101];
+        UILabel * labelPrice = (UILabel*) [cellForProductList viewWithTag:102];
+        UIImageView * imageViewPreview = (UIImageView*) [cellForProductList viewWithTag:103];
         
         labelName.text= productObj.productName;
         labelPrice.text = productObj.productPrice;
         
-        imageViewPreview.image = productObj.productImage;
+        if (!productObj.productThumbImage) {
+            
+            
+            imageViewPreview.image = [UIImage imageNamed:@"Men_at_work.png"];
+            
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                
+                [ProductOrganizer setThumbImageForProduct:productObj];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    
+                    imageViewPreview.image = productObj.productThumbImage;
+                    
+                    
+                });
+                
+                
+                
+            });
+        }else{
+            
+            imageViewPreview.image = productObj.productThumbImage;
+            
+        }
         
-        return cellForHorseList;
+        
+
+        
+        return cellForProductList;
         
         
     }
     else
         
     {
-     //   cellForLastCell=[tableCellArray objectAtIndex:1];
         
-     //   cellForLastCell.selectionStyle= UITableViewCellSelectionStyleNone;
-     //   cellForLastCell.userInteractionEnabled=NO;
+        UITableViewCell *cellForLastCell = [tableView dequeueReusableCellWithIdentifier:@"ListLastCell" forIndexPath:indexPath];
         
-        
-        
-     //   cellForLastCell.frame= CGRectMake(cellForLastCell.frame.origin.x, cellForLastCell.frame.origin.y, tableView.frame.size.width, cellForLastCell.frame.size.height);
+        cellForLastCell.textLabel.text = [self getTotalPrice];
         
         
-     //   return cellForLastCell;
+        
+        
+        
+        return cellForLastCell;
         
     }
     
@@ -220,6 +246,10 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (arrayPopulateTable.count) {
+        
+        
+    
     ProductViewController *viewproductVCobj = [self.storyboard instantiateViewControllerWithIdentifier:@"productview"];
     
     
@@ -227,33 +257,144 @@
     
     
     [self.navigationController pushViewController:viewproductVCobj animated:NO];
+        
+    }
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return arrayPopulateTable.count;
+    
+    if (arrayPopulateTable.count == 0) {
+        
+       
+        
+        return 0;
+    }
+    
+    return (arrayPopulateTable.count)+1;
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   
     if (indexPath.row<arrayPopulateTable.count) {
-        return 80;
+        return 150;
     }else
         return 40;
+    
+    
 }
 
-- (void)didReceiveMemoryWarning
+-(NSString*) getTotalPrice
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    double total=0;
+    
+    for (ModelProduct * product in arrayPopulateTable) {
+        
+        total = total + [product.productPrice doubleValue];
+        
+    }
+    return [NSString stringWithFormat:@"Total Price= %f QR",total];
+    
 }
--(BOOL)slideNavigationControllerShouldDisplayLeftMenu
+-(void) removeCartItemAtIndexPath :(NSIndexPath*) indexPath
 {
-   return YES;
+    
+    ModelProduct * p = [arrayPopulateTable objectAtIndex:indexPath.row];
+    
+    NSString * pid = p.productId;
+    
+    
+    if (![CredentialManager FetchCredentailsSavedOffline]) {
+        
+        //guest user
+        
+        NSString * keyCart =@"CartItems";
+        NSMutableArray * addToCartItems = [ProductOrganizer loadArrayFromUserDefaultsWithKey:keyCart];
+        
+        [addToCartItems removeObjectAtIndex:indexPath.row];
+        
+        [ProductOrganizer saveCustomArrayToUserDefaults:addToCartItems withKey:keyCart];
+
+        [tableViewCartList reloadData];
+        
+    }else{
+        
+        
+    
+    NSString * userId = [CredentialManager FetchCredentailsSavedOffline][@"UserId"];
+    
+    
+    NSString * PostString = [NSString stringWithFormat:@"profile_id=%@&product_id=%@",userId,pid];
+
+    
+    AuthenticationServer  = [[BinSystemsServerConnectionHandler alloc]initWithURL:kServerLink_removeCartItem PostData:PostString];
+    
+    
+    [AuthenticationServer StartServerConnectionWithCompletionHandler:@"POST":^(NSDictionary *JSONDict) {
+        
+        
+        NSDictionary * Result1 = JSONDict;
+        
+        
+        
+        if (Result1) {
+            
+            NSString * msg = [Result1 valueForKey:@"message"];
+            
+            
+            if ([msg isEqualToString:@"Deleted"]) {
+                
+                
+                
+                
+                [arrayPopulateTable removeObjectAtIndex:indexPath.row];
+                
+                
+                [tableViewCartList reloadData];
+                
+                
+            }
+            
+            
+        }
+        
+        
+        
+    } FailBlock:^(NSString *Error) {
+        
+        
+        [InterfaceManager DisplayAlertWithMessage:Error];
+        
+    }];
+
+    
+    
+    
+    
+    
+    
+    }
+    
 }
--(BOOL)slideNavigationControllerShouldDisplayRightMenu
-{
-    return NO;
+- (IBAction)actionRemoveCartItem:(UIButton*)sender {
+    
+    
+    CGRect buttonFrame = [sender convertRect:sender.bounds toView:tableViewCartList];
+    NSIndexPath *indexPath =  [tableViewCartList indexPathForRowAtPoint:buttonFrame.origin];
+    
+    
+    [self removeCartItemAtIndexPath:indexPath];
+    
+}
+    
+    
+    
+    
+
+
+- (IBAction)actionProceedToPay:(id)sender {
+    
 }
 @end

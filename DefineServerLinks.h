@@ -3,6 +3,7 @@
 
 #define kServerConnectionTimeOut 5000
 
+#define kServerPreImageUrl @"http://talenweave.com/qatardeals2/image/"
 
 
 #define kServerLink_Login @"http://talenweave.com/qatardeals2/index.php?route=common/api/login"
@@ -25,6 +26,8 @@
 #define kServerLink_getRecentDeals @"http://talenweave.com/qatardeals2/index.php?route=common/api/showrecentdeals"
 
 #define kServerLink_getcustomerkart @"http://talenweave.com/qatardeals2/index.php?route=common/api/getCustomerCart"
+
+#define kServerLink_removeCartItem @"http://talenweave.com/qatardeals2/index.php?route=common/api/removeCart"
 
 #define kServerLink_getWishList @"http://talenweave.com/qatardeals2/index.php?route=common/api/getCustomerWishlist"
 

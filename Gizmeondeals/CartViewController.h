@@ -16,5 +16,7 @@
 
 @property (strong,nonatomic) BinSystemsServerConnectionHandler * AuthenticationServer;
 @property (strong, nonatomic) IBOutlet UITableView *tableViewCartList;
+- (IBAction)actionRemoveCartItem:(id)sender;
+- (IBAction)actionProceedToPay:(id)sender;
 
 @end

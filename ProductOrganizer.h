@@ -21,4 +21,5 @@
 +(NSMutableArray *)loadArrayFromUserDefaultsWithKey:(NSString*)key;
 +(void)saveCustomArrayToUserDefaults:(NSMutableArray*)obj withKey:(NSString *) key;
 +(NSArray *) convertServerArrayToModelProductArray :(NSArray *) arrayServerData;
++(void) setThumbImageForProduct:(ModelProduct *) product;
 @end

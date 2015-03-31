@@ -112,7 +112,7 @@
 {
      NSString * key =@"WishListItems";
     
-    arrayPopultateTable = [self loadArrayFromUserDefaultsWithKey:key];
+    arrayPopultateTable = [ProductOrganizer loadArrayFromUserDefaultsWithKey:key];
     
     if (arrayPopultateTable) {
         
@@ -135,13 +135,7 @@
 }
 
 
--(NSMutableArray *)loadArrayFromUserDefaultsWithKey:(NSString*)key
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *myEncodedObject = [defaults objectForKey: key];
-    NSMutableArray* obj = (NSMutableArray*)[NSKeyedUnarchiver unarchiveObjectWithData: myEncodedObject];
-    return obj;
-}
+
 
 //***************************************  Delegates   *************************************************//
 
@@ -150,13 +144,11 @@
 {
     
     
-    //  mykartTableViewCell *cellForLastCell= (mykartTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"lastCell"];
+    
     
     UITableViewCell *cellForHorseList= [tableView dequeueReusableCellWithIdentifier:@"HorseList" forIndexPath:indexPath];
     
-    
-    
-    // NSArray *tableCellArray =[[NSBundle mainBundle]loadNibNamed:@"mykartTableViewCell" owner:self options:nil];
+       
     
     ModelProduct * productObj =  [arrayPopultateTable objectAtIndex:indexPath.row];
     if ([indexPath row]<arrayPopultateTable.count) {
@@ -168,29 +160,44 @@
         labelName.text= productObj.productName;
         labelPrice.text = productObj.productPrice;
         
-        imageViewPreview.image = productObj.productImage;
+        
+        if (!productObj.productThumbImage) {
+            
+            
+            imageViewPreview.image = [UIImage imageNamed:@"Men_at_work.png"];
+            
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                
+   [ProductOrganizer setThumbImageForProduct:productObj];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    
+                    imageViewPreview.image = productObj.productThumbImage;
+                    
+                    
+                });
+                
+                
+                
+            });
+        }else{
+            
+            imageViewPreview.image = productObj.productThumbImage;
+            
+        }
+        
+        
+        
+        
+        
         
         return cellForHorseList;
         
-        
     }
-    else
-        
-    {
-        //   cellForLastCell=[tableCellArray objectAtIndex:1];
-        
-        //   cellForLastCell.selectionStyle= UITableViewCellSelectionStyleNone;
-        //   cellForLastCell.userInteractionEnabled=NO;
-        
-        
-        
-        //   cellForLastCell.frame= CGRectMake(cellForLastCell.frame.origin.x, cellForLastCell.frame.origin.y, tableView.frame.size.width, cellForLastCell.frame.size.height);
-        
-        
-        //   return cellForLastCell;
-        
-    }
-    
+       
     
     return nil;
     
@@ -201,13 +208,7 @@
     return arrayPopultateTable.count;
     
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row<arrayPopultateTable.count) {
-        return 80;
-    }else
-        return 40;
-}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ProductViewController *viewproductVCobj = [self.storyboard instantiateViewControllerWithIdentifier:@"productview"];

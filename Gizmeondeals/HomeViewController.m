@@ -395,7 +395,7 @@
                 
                 ModelProduct * tempProduct = [arrayMyDeals objectAtIndex:indexPath.item];
                 
-                NSURL * imgUrl =[NSURL URLWithString:[@"http://talenweave.com/qatardeals2/image/" stringByAppendingString:productDetails.productImageUrl]];
+                NSURL * imgUrl =[NSURL URLWithString:[kServerPreImageUrl stringByAppendingString:productDetails.productImageUrl]];
                 
                 NSData *downloadedData = [NSData dataWithContentsOfURL:imgUrl];
                 

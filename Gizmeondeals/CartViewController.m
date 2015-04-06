@@ -63,6 +63,7 @@
     
     [self loadCartOffline];
     }
+
 }
 -(void) loadCartOffline
 {
@@ -71,9 +72,6 @@
     arrayPopulateTable = [ProductOrganizer loadArrayFromUserDefaultsWithKey:key];
     
     if (arrayPopulateTable) {
-        
-        
-        
         
         
         [tableViewCartList reloadData];
@@ -91,8 +89,6 @@
 }
 -(void) loadCartFromServer
 {
-    
-    
     
     arrayPopulateTable = [[NSMutableArray alloc]init];
     
@@ -137,9 +133,6 @@
                 
                 NSLog(@"%@",[JSONDict valueForKey:@"Name"]);
                 
-                
-            
-            
             }
             
             
@@ -209,9 +202,6 @@
             
         }
         
-        
-
-        
         return cellForProductList;
         
         
@@ -223,9 +213,6 @@
         UITableViewCell *cellForLastCell = [tableView dequeueReusableCellWithIdentifier:@"ListLastCell" forIndexPath:indexPath];
         
         cellForLastCell.textLabel.text = [self getTotalPrice];
-        
-        
-        
         
         
         return cellForLastCell;

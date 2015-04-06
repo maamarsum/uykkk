@@ -14,6 +14,7 @@
 #import "DefineServerLinks.h"
 #import "AppGlobalVariables.h"
 #import "DefineMainValues.h"
+
 @implementation AppDelegate
 {
     UIAlertView *alertPleaseWait;
@@ -146,6 +147,7 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
 -(void)loadMenu
 {
     alertPleaseWait = [[UIAlertView alloc]initWithTitle:kApplicationName message:@"Loading Menu items" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];

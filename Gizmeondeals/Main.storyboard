@@ -10,7 +10,7 @@
             <objects>
                 <viewController id="gym-fo-5rP" customClass="ReviewViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nqn-sF-6xu">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="write review" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GyV-HU-2PX">
@@ -54,7 +54,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72d-R6-mVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Koe-jZ-Hn4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2085" y="-383"/>
+            <point key="canvasLocation" x="-2001" y="-339"/>
         </scene>
         <!--Contacts View Controller-->
         <scene sceneID="Heq-FW-s1N">
@@ -296,7 +295,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="KeH-dO-L1N"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="textFieldAddress" destination="IVP-jT-NEf" id="Y9X-KW-g2J"/>
                         <outlet property="textFieldCOuntryId" destination="2SU-wq-McY" id="rtR-EE-SkJ"/>
@@ -323,7 +321,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="83" sectionHeaderHeight="22" sectionFooterHeight="22" id="0Bq-lL-N20">
-                                <rect key="frame" x="0.0" y="20" width="320" height="497"/>
+                                <rect key="frame" x="0.0" y="91" width="320" height="426"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -360,6 +358,11 @@
                                     <outlet property="delegate" destination="AVQ-8X-jgF" id="OJg-qh-VVo"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" id="t2D-uQ-xrN" customClass="TopBarView">
+                                <rect key="frame" x="0.0" y="-2" width="320" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -377,15 +380,14 @@
             <objects>
                 <viewController id="DTd-Gg-8Hk" customClass="OrderdetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BWI-sB-YN2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTe-Qy-6Hd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="431" y="-987"/>
+            <point key="canvasLocation" x="851" y="-931"/>
         </scene>
         <!--Myorders View Controller-->
         <scene sceneID="LKI-de-ajV">
@@ -540,12 +542,23 @@
             <objects>
                 <viewController id="foO-Fl-NqF" customClass="AccountViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aAb-4j-WBY">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="JRd-j6-eSC" customClass="TopBarView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="1pE-gA-uXy" customClass="TopBarView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="OGW-M7-497"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZJ-mR-qhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -556,7 +569,7 @@
             <objects>
                 <viewController storyboardIdentifier="discriptionview" id="RVT-uK-RJb" customClass="DiscriptionViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q2v-AZ-7lK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V69-yT-4cl">
@@ -569,14 +582,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="labeldisc" destination="V69-yT-4cl" id="YAX-k5-ykH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJ4-RL-2F0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="-517"/>
+            <point key="canvasLocation" x="425" y="-553"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Odw-ej-1sB">
@@ -629,7 +641,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e69-vl-4oP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4214" y="521"/>
+            <point key="canvasLocation" x="-4386" y="681"/>
         </scene>
         <!--Item-->
         <scene sceneID="ULo-XU-l0w">
@@ -956,7 +968,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7WL-Mp-DCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1901" y="1063"/>
+            <point key="canvasLocation" x="-2001" y="1065"/>
         </scene>
         <!--Product View Controller-->
         <scene sceneID="wPv-ZB-d0d">
@@ -1339,16 +1351,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="el3-rt-UYx">
-                                <rect key="frame" x="7" y="60" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="Buttonback:" destination="0tt-iA-WEX" eventType="touchUpInside" id="VVg-Cj-Vbm"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mp9-vI-d4i">
                                 <rect key="frame" x="0.0" y="316" width="320" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1359,6 +1361,11 @@
                                     <segue destination="aZs-MZ-YHR" kind="push" id="Cbf-DC-gVe"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="EhT-xC-y6c" customClass="TopBarView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1455,9 +1462,10 @@
         <!--Item-->
         <scene sceneID="ZaJ-Xl-PyA">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gL7-Mb-NgX" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="gL7-Mb-NgX" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="VSl-m5-umv"/>
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tww-xf-QK2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1474,9 +1482,10 @@
         <!--Item-->
         <scene sceneID="Ta3-I6-5NW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eyv-FK-F0h" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="eyv-FK-F0h" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="fQK-30-CxB"/>
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OAv-UE-gve">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1522,7 +1531,7 @@
                                         <rect key="frame" x="108" y="8" width="107" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Sort">
-                                            <color key="titleColor" patternImage="6E757E7D-2947-471C-BBEE-81E5E2F19B29" colorSpace="pattern"/>
+                                            <color key="titleColor" patternImage="A005CF91-F819-4C13-BB57-428BFFADC5AF" colorSpace="pattern"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1729,11 +1738,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWR-N2-DHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1901" y="1789"/>
+            <point key="canvasLocation" x="-2001" y="1845"/>
         </scene>
     </scenes>
     <resources>
-        <image name="6E757E7D-2947-471C-BBEE-81E5E2F19B29" width="320" height="460">
+        <image name="A005CF91-F819-4C13-BB57-428BFFADC5AF" width="320" height="460">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

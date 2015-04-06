@@ -7,7 +7,7 @@
 //
 
 
-#define kApplicationName @"Qatardeals"
+#define kApplicationName @"Gizmeon Deals"
 
 
 //Fonts

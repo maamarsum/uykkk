@@ -941,7 +941,7 @@ static SlideNavigationController *singletonInstance;
 -(UIViewController*) getCurrentViewController
 {
     
-    @try {
+
         
         UIViewController * VC;
         
@@ -949,13 +949,30 @@ static SlideNavigationController *singletonInstance;
             
             UITabBarController * tabbar = (UITabBarController*)self.topViewController;
             
-            id firstTab = tabbar.viewControllers[tabbar.selectedIndex];
+            id firstTab;
+            
+            @try {
+                
+                 firstTab = tabbar.viewControllers[tabbar.selectedIndex];
+                
+            }
+            @catch (NSException *exception) {
+                
+                 firstTab = tabbar.viewControllers[0];
+            }
+            @finally {
+                
+                
+            }
+            
+            
             
             if ([firstTab isKindOfClass:[UINavigationController class]]) {
                 
                 UINavigationController * firstTabNav = (UINavigationController*) firstTab;
                 
                 VC = (UINavigationController*)firstTabNav.topViewController;
+                
             }else{
                 
                 VC = firstTab;
@@ -970,15 +987,6 @@ static SlideNavigationController *singletonInstance;
         
         return VC;
 
-    }
-    @catch (NSException *exception) {
-        
-        
-    }
-    @finally {
-        
-        
-    }
     
     
 }

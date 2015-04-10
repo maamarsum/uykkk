@@ -21,6 +21,8 @@
 #import "DealsbycategoryViewController.h"
 #import "AppGlobalVariables.h"
 #import "TabBarController.h"
+#import "LoginViewController.h"
+#import "CredentialManager.h"
 
 
 
@@ -28,7 +30,7 @@
 {
     
     
-    
+    UIButton * buttonSignIN;
     NSArray * arrayMenu;
 }
 #pragma mark - UIViewController Methods -
@@ -39,7 +41,21 @@
 	
 	return [super initWithCoder:aDecoder];
 }
-
+-(void) viewWillAppear:(BOOL)animated
+{
+    
+    if ([CredentialManager FetchCredentailsSavedOffline]) {
+        
+        [buttonSignIN setHidden:YES];
+        
+    }else{
+        
+        [buttonSignIN setHidden:NO];
+        
+    }
+    
+    
+}
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
@@ -54,37 +70,61 @@
     self.tableView.dataSource = self;
     self.tableView.opaque = NO;
     self.tableView.backgroundColor = [UIColor clearColor];
-    self.tableView.tableHeaderView = ({
-        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 184.0f)];
     
+    self.tableView.tableHeaderView = ({
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 80)];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
-        imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        imageView.image = [UIImage imageNamed:@"logo.png"];
-        imageView.layer.masksToBounds = YES;
-        imageView.layer.cornerRadius = 50.0;
-        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
-        imageView.layer.borderWidth = 3.0f;
-        imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
-        imageView.layer.shouldRasterize = YES;
-        imageView.clipsToBounds = YES;
+//        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 40, 100, 100)];
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
-        label.text = @"QATAR DEALS";
-        label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-        label.backgroundColor = [UIColor clearColor];
-        label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
-        [label sizeToFit];
-        label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+//        
+//        imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+//        imageView.image = [UIImage imageNamed:@"logo.png"];
+//        imageView.layer.masksToBounds = YES;
+//        imageView.layer.cornerRadius = 50.0;
+//        imageView.layer.borderColor = [UIColor whiteColor].CGColor;
+//        imageView.layer.borderWidth = 3.0f;
+//        imageView.layer.rasterizationScale = [UIScreen mainScreen].scale;
+//        imageView.layer.shouldRasterize = YES;
+//        imageView.clipsToBounds = YES;
+//        
+//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 150, 0, 24)];
+//        label.text = @"QATAR DEALS";
+//        label.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+//        label.backgroundColor = [UIColor clearColor];
+//        label.textColor = [UIColor colorWithRed:62/255.0f green:68/255.0f blue:75/255.0f alpha:1.0f];
+//        
+//        [label sizeToFit];
+//        label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+//        
+//        [view addSubview:imageView];
+//        [view addSubview:label];
+
+         buttonSignIN = [UIButton buttonWithType:UIButtonTypeCustom];
+                                   
+        buttonSignIN.frame =CGRectMake(20, 40, 200, 50);
         
-        [view addSubview:imageView];
-        [view addSubview:label];
+        buttonSignIN.backgroundColor = [UIColor redColor];
+      
+       // buttonSignIN.center = view.center;
+        
+        buttonSignIN.layer.cornerRadius = 10.f;
+        
+        
+        
+        [buttonSignIN setTitle:@"SignIn/SignUp" forState:UIControlStateNormal];
+        
+        [view addSubview:buttonSignIN];
+        
+        
+        [buttonSignIN addTarget:self action:@selector(signInAction) forControlEvents:UIControlEventTouchUpInside];
+        
         view;
+        
+        
     });
 
     
-    
-    }
+}
 
 #pragma mark - UITableView Delegate & Datasrouce -
 
@@ -105,13 +145,14 @@
     CategoryTableViewCell *cellForcategorylist= (CategoryTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"Categorylist"];
     
     //if (cellForHorseList==NULL||cellForLastCell==NULL) {
+    
     NSArray *tableCellArray =[[NSBundle mainBundle]loadNibNamed:@"CategoryTableViewCell" owner:self options:nil];
     
     
     if ([indexPath row]<arrayMenu.count) {
         cellForcategorylist=[tableCellArray objectAtIndex:0];
         
-        
+        cellForcategorylist.backgroundColor = [UIColor clearColor];
         
         
         
@@ -150,9 +191,6 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    
-    
-    
 
     TabBarController * tabbarr = [AppGlobalVariables sharedInstance].appTabBar;
                                     
@@ -183,7 +221,6 @@
             
           UINavigationController * nav =  [AppGlobalVariables sharedInstance].firstTabNavigationController;
             
-           
             
             DealsbycategoryViewController * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"dealsbycategory"];
       
@@ -198,11 +235,8 @@
             
             
             [[SlideNavigationController sharedInstance] closeMenuWithCompletion:nil];
-              
             
         }
-        
-        
         
     }
 
@@ -210,8 +244,21 @@
     
     [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
     
+}
+-(void) signInAction
+{
+    
+    
+    [[SlideNavigationController sharedInstance] closeMenuWithCompletion:nil];
+    
+        LoginViewController *VC = [self.storyboard instantiateViewControllerWithIdentifier:@"loginview"];
+        
+        [[SlideNavigationController sharedInstance] presentViewController:VC animated:YES completion:nil];
 
-
+    
+    
+    
+    
 }
 
 @end

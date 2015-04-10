@@ -15,8 +15,12 @@
 
 @interface ForgotPasswordViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonSubmit;
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonCancel;
+@property (weak, nonatomic) IBOutlet UIView *viewSubview;
 
 - (IBAction)buttonActionBack:(id)sender;
+- (IBAction)ActionSubmit:(id)sender;
 
 @end

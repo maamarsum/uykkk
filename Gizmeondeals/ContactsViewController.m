@@ -15,7 +15,7 @@
 @end
 
 @implementation ContactsViewController
-
+@synthesize textFieldCity,textFieldFirstName,textFieldLastName,textFieldNumber,textLocationType;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,6 +29,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    
+    
+    
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,8 +52,6 @@
     if ([nav.topViewController isKindOfClass:[ProductViewController class]]) {
         
         
-        
-        
         ProductViewController *VC = (ProductViewController*)nav.topViewController;
         
         
@@ -54,5 +59,11 @@
         
     }
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)ActionNext:(id)sender {
+    
+    
+    
+    
 }
 @end

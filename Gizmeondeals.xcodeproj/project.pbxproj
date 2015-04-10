@@ -83,6 +83,7 @@
 		9F4738821ABADB7E00BA0EEB /* rateus1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4738761ABADB7E00BA0EEB /* rateus1.png */; };
 		9F4738831ABADB7E00BA0EEB /* twitter1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F4738771ABADB7E00BA0EEB /* twitter1.png */; };
 		9F4738861ABADEC700BA0EEB /* MyordersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F4738851ABADEC700BA0EEB /* MyordersViewController.m */; };
+		9F632B771AD3D43600B25450 /* slidebackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F632B761AD3D43600B25450 /* slidebackground.jpg */; };
 		9FD0D16F1AB8441C003F4F2C /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0D16E1AB8441C003F4F2C /* MoreViewController.m */; };
 		9FD0D2031AB94CA6003F4F2C /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0D1FA1AB94CA6003F4F2C /* SlideNavigationContorllerAnimatorFade.m */; };
 		9FD0D2041AB94CA6003F4F2C /* SlideNavigationContorllerAnimatorScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0D1FC1AB94CA6003F4F2C /* SlideNavigationContorllerAnimatorScale.m */; };
@@ -232,6 +233,7 @@
 		9F4738771ABADB7E00BA0EEB /* twitter1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter1.png; sourceTree = "<group>"; };
 		9F4738841ABADEC700BA0EEB /* MyordersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyordersViewController.h; sourceTree = "<group>"; };
 		9F4738851ABADEC700BA0EEB /* MyordersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyordersViewController.m; sourceTree = "<group>"; };
+		9F632B761AD3D43600B25450 /* slidebackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = slidebackground.jpg; sourceTree = "<group>"; };
 		9FD0D16D1AB8441C003F4F2C /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MoreViewController.h; path = ../MoreViewController.h; sourceTree = "<group>"; };
 		9FD0D16E1AB8441C003F4F2C /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MoreViewController.m; path = ../MoreViewController.m; sourceTree = "<group>"; };
 		9FD0D1F81AB94CA6003F4F2C /* SlideNavigationContorllerAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimator.h; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 		3318D6141A70BA51003B60D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9F632B761AD3D43600B25450 /* slidebackground.jpg */,
 				3364EF041AC9725A00E9635A /* Default.png */,
 				3364EF051AC9725A00E9635A /* Default@2x.png */,
 				3364EF021AC9722600E9635A /* Default-667h@2x.png */,
@@ -753,6 +756,7 @@
 				3364EF011AC96EFB00E9635A /* Icon-40@2x.png in Resources */,
 				3318D7621A7CDB03003B60D6 /* calender.png in Resources */,
 				3364EEE91AC9374E00E9635A /* ReviewTableViewCell.xib in Resources */,
+				9F632B771AD3D43600B25450 /* slidebackground.jpg in Resources */,
 				B9D6CCD01AB6D8D600DF9508 /* moreicon1.png in Resources */,
 				3318D6461A70C493003B60D6 /* Main.storyboard in Resources */,
 				3318D76D1A7F4746003B60D6 /* wishlist.png in Resources */,

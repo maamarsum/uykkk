@@ -30,11 +30,38 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _viewSubview.layer.cornerRadius= 10.0f;
+    
+    _buttonCancel.layer.cornerRadius=_buttonSubmit.layer.cornerRadius=10.0f;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 
 - (IBAction)buttonActionBack:(id)sender {
     
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)ActionSubmit:(id)sender {
+    
+    
+    
+    
+    
+    
+    
 }
 @end

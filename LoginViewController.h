@@ -29,7 +29,7 @@
 
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) IBOutlet UIButton *buttonSkip;
+
 
 //IB Actions
 - (IBAction)skipLoginAction:(id)sender;
@@ -37,10 +37,13 @@
 - (IBAction)forgotPasswordButtonAction:(id)sender;
 - (IBAction)createButtonAction:(id)sender;
 - (IBAction)buttonActionCancel:(id)sender;
+
+
 @property (strong, nonatomic) IBOutlet UIButton *butonForgotPassword;
-
 @property (strong, nonatomic) IBOutlet UIButton *buttonCreateAccount;
-
-
+@property (weak, nonatomic) IBOutlet UIButton *buttonCancel;
+@property (strong, nonatomic) IBOutlet UIButton *buttonSkip;
+@property (weak, nonatomic) IBOutlet UIView *viewLoginSubView;
+@property (weak, nonatomic) IBOutlet UIButton *buutonLogin;
 
 @end

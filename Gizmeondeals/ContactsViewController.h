@@ -10,5 +10,11 @@
 
 @interface ContactsViewController : UIViewController
 - (IBAction)buttonActionBack:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldFirstName;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldLastName;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldCity;
+@property (weak, nonatomic) IBOutlet UITextField *textLocationType;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldNumber;
+- (IBAction)ActionNext:(id)sender;
 
 @end

@@ -83,6 +83,14 @@
         
     }
     
+    _viewLoginSubView.layer.cornerRadius=15.0f;
+    
+    _buttonCancel.layer.cornerRadius=_buttonSkip.layer.cornerRadius=butonForgotPassword.layer.cornerRadius=buttonCreateAccount.layer.cornerRadius=_buutonLogin.layer.cornerRadius= 10.0f;
+    
+    
+    
+    
+    
     
     [self.view addGestureRecognizer:tap];
     // Do any additional setup after loading the view.
@@ -267,8 +275,6 @@
                                         
                                         [wishListitems removeObjectAtIndex:i];
                                         
-                                        
-                                        
                                     }else{
                                         
                                         
@@ -298,11 +304,7 @@
                     }
                     
                     
-                    
-                    
                 }
-                    
-                    
                 
                             
             }
@@ -315,15 +317,11 @@
                                                                        
                                                                        
                                                                    }];
-            
-        }
+            }
              
             
     }
-    
-             
-      
-    
+        
 }
 
 - (IBAction)forgotPasswordButtonAction:(id)sender{

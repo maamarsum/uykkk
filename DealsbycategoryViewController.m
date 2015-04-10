@@ -568,16 +568,10 @@
                     }
                     
                     
-                    
                 });
                 
-                
-                
             });
-            
-            
-            
-            
+                      
         }else{
             
             imageViewProductImage.image = productDetails.productImage;

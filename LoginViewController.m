@@ -76,6 +76,11 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyBoard)];
     
     
+    
+    [self.view addGestureRecognizer:tap];
+    
+    
+    
     if (!_isInFirstScreen) {
         
         
@@ -91,8 +96,7 @@
     
     
     
-    
-    [self.view addGestureRecognizer:tap];
+
     // Do any additional setup after loading the view.
     
   

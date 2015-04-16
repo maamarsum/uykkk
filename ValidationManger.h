@@ -14,4 +14,5 @@
 +(BOOL) validateTextField :(UITextField *) textField;
 +(BOOL) checkStringsAreEqual :(NSString *) string1 :(NSString *) string2;
 +(BOOL) validateProduct :(ModelProduct *) product;
++(BOOL) validateEmail :(NSString *) emailString;
 @end

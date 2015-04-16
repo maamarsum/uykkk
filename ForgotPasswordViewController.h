@@ -22,5 +22,6 @@
 
 - (IBAction)buttonActionBack:(id)sender;
 - (IBAction)ActionSubmit:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldEmail;
 
 @end

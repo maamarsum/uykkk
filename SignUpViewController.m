@@ -16,6 +16,10 @@
 
 BOOL valdiated;
 NSArray * arrayManditoryFields;
+NSArray * arrayCountryList;
+DropDownView *dropCountry,*dropRegion;
+
+
 @implementation SignUpViewController
 @synthesize textFieldAddress,textFieldCity,textFieldConfirmPassword,textFieldCOuntryId,textFieldEmail,textFieldFName,textFieldPassword,textFieldPINCode,textFieldSName,textFieldTelephone;
 
@@ -41,9 +45,29 @@ NSArray * arrayManditoryFields;
     
     textFieldTelephone.delegate=textFieldSName.delegate=textFieldPINCode.delegate=textFieldPassword.delegate=textFieldFName.delegate=textFieldEmail.delegate=textFieldCOuntryId.delegate=textFieldConfirmPassword.delegate=textFieldCity.delegate=textFieldAddress.delegate=self;
     
+    arrayCountryList = [NSArray arrayWithObject:@"kajhfk;asjdhfkajsh"];
+    
+    dropCountry = [[DropDownView alloc]initWithArrayData:arrayCountryList cellHeight:50 heightTableView:300 paddingTop:10 paddingLeft:10 paddingRight:10 refView:textFieldCOuntryId animation:BLENDIN openAnimationDuration:1 closeAnimationDuration:1];
+    
+    dropCountry.delegate=self;
+    //[dropCountry openAnimation];
+    
 }
 
-
+-(void) textFieldDidBeginEditing:(UITextField *)textField
+{
+    
+    if (textField==textFieldCOuntryId) {
+        
+        [self.view endEditing:YES];
+        
+        [dropCountry openAnimation];
+        
+        
+        
+    }
+    
+}
 
 -(void) validateManditoryFields
     {

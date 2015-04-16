@@ -212,7 +212,9 @@
         
         UITableViewCell *cellForLastCell = [tableView dequeueReusableCellWithIdentifier:@"ListLastCell" forIndexPath:indexPath];
         
-        cellForLastCell.textLabel.text = [self getTotalPrice];
+        UILabel * labelTotalPrice = (UILabel*)[cellForLastCell viewWithTag:201];
+        
+        labelTotalPrice.text= [self getTotalPrice];
         
         
         return cellForLastCell;

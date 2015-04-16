@@ -318,6 +318,10 @@ static SlideNavigationController *singletonInstance;
 
 - (void)openMenu:(Menu)menu withCompletion:(void (^)())completion
 {
+   
+    [_leftMenu respondsToSelector:@selector(slideNavigationControllerWillOpenLeftMenu)];
+    
+    
 	[self openMenu:menu withDuration:self.menuRevealAnimationDuration andCompletion:completion];
 }
 

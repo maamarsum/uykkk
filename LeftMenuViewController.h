@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SlideNavigationController.h"
 
-@interface LeftMenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface LeftMenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,SlideNavigationControllerDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) BOOL slideOutAnimationEnabled;

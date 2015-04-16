@@ -12,8 +12,10 @@
 #import "CredentialManager.h"
 #import "InterfaceManager.h"
 #import "DefineServerLinks.h"
+#import "DropDownView.h"
+#import "CountryListDropDownTableViewCell.h"
 
-@interface SignUpViewController : UIViewController<UITextFieldDelegate>
+@interface SignUpViewController : UIViewController<UITextFieldDelegate,DropDownViewDelegate>
 
 @property (strong,nonatomic) NSString * GUsername;
 @property (strong,nonatomic) NSString * GPassword;

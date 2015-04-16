@@ -44,16 +44,6 @@
 -(void) viewWillAppear:(BOOL)animated
 {
     
-    if ([CredentialManager FetchCredentailsSavedOffline]) {
-        
-        [buttonSignIN setHidden:YES];
-        
-    }else{
-        
-        [buttonSignIN setHidden:NO];
-        
-    }
-    
     
 }
 - (void)viewDidLoad
@@ -258,6 +248,21 @@
     
     
     
+    
+}
+-(void) slideNavigationControllerWillOpenLeftMenu{
+    
+    
+    if ([CredentialManager FetchCredentailsSavedOffline]) {
+        
+        [buttonSignIN setHidden:YES];
+        
+    }else{
+        
+        [buttonSignIN setHidden:NO];
+        
+    }
+
     
 }
 

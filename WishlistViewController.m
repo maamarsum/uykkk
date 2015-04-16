@@ -17,7 +17,7 @@
 @interface WishlistViewController ()
 {
     
-    NSArray *arrayPopultateTable;
+    NSMutableArray *arrayPopultateTable;
 }
 @end
 @implementation WishlistViewController
@@ -237,4 +237,99 @@
 }
 */
 
+- (IBAction)actionDeleteRow:(UIButton*)sender {
+    
+    
+    CGRect buttonFrame = [sender convertRect:sender.bounds toView:tableViewWishList];
+    NSIndexPath *indexPath =  [tableViewWishList indexPathForRowAtPoint:buttonFrame.origin];
+    
+    
+    [self removeWishListItemAtIndexPath:indexPath];
+}
+-(void) removeWishListItemAtIndexPath :(NSIndexPath*) indexPath
+{
+    
+    ModelProduct * p = [arrayPopultateTable objectAtIndex:indexPath.row];
+    
+    NSString * pid = p.productId;
+    
+    
+    if (![CredentialManager FetchCredentailsSavedOffline]) {
+        
+        //guest user
+        
+        NSString * keyCart =@"WishListItems";
+        NSMutableArray * WishListItems = [ProductOrganizer loadArrayFromUserDefaultsWithKey:keyCart];
+        
+        [WishListItems removeObjectAtIndex:indexPath.row];
+        
+        [ProductOrganizer saveCustomArrayToUserDefaults:WishListItems withKey:keyCart];
+        
+        arrayPopultateTable = [WishListItems copy];
+        
+        [tableViewWishList reloadData];
+        
+    }else{
+        
+        
+        
+        NSString * userId = [CredentialManager FetchCredentailsSavedOffline][@"UserId"];
+        
+        
+        NSString * PostString = [NSString stringWithFormat:@"profile_id=%@&product_id=%@",userId,pid];
+        
+        
+      BinSystemsServerConnectionHandler * AuthenticationServer  = [[BinSystemsServerConnectionHandler alloc]initWithURL:kServerLink_removeWishListItem PostData:PostString];
+        
+        
+        [AuthenticationServer StartServerConnectionWithCompletionHandler:@"POST":^(NSDictionary *JSONDict) {
+            
+            
+            NSDictionary * Result1 = JSONDict;
+            
+            
+            
+            if (Result1) {
+                
+                NSString * msg = [Result1 valueForKey:@"message"];
+                
+                
+                if ([msg isEqualToString:@"Deleted"]) {
+                    
+                    
+                    
+                    
+                    [arrayPopultateTable removeObjectAtIndex:indexPath.row];
+                    
+                    
+                    [tableViewWishList reloadData];
+                    
+                    
+                }
+                
+                
+            }
+            
+            
+            
+        } FailBlock:^(NSString *Error) {
+            
+            
+            [InterfaceManager DisplayAlertWithMessage:Error];
+            
+        }];
+        
+        
+        
+        
+        
+        
+        
+    }
+  
+    
+    
+    
+    
+}
 @end

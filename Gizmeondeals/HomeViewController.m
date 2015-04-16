@@ -76,22 +76,27 @@
     
     
     
+    collectionViewMyDeals.layer.borderColor = [UIColor redColor].CGColor;
     
-    for (UIView *view in [self.view subviews]) {
-        
-        
-        if ([view isKindOfClass:[TopBarView class]]) {
-            
-            
-            
-            
-            
-        }
-        
+    collectionViewMyDeals.layer.cornerRadius = 10.0;
+    collectionViewRecentDeals.layer.cornerRadius = 10.0;
+    
+    
+    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+    anim.fromValue = (id)[UIColor clearColor].CGColor;
+    anim.toValue = (id)[UIColor lightGrayColor].CGColor;
+    collectionViewRecentDeals.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    anim.duration = [CATransaction animationDuration];
+    anim.timingFunction = [CATransaction animationTimingFunction];
+    [collectionViewRecentDeals.layer addAnimation:anim forKey:@"myAnimation"];
+    
+    
+    
+    
         
     }
     
-    }
+
 
 
 
@@ -299,6 +304,13 @@
     if (collectionView.tag == 100) {
         
         UICollectionViewCell *cellForRecentDeals = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCellRecentDeals" forIndexPath:indexPath];
+        
+        
+        cellForRecentDeals.layer.borderColor = [UIColor blackColor].CGColor;
+        
+        
+        
+        
         
         ModelProduct *productDetails = [ModelProduct new];
         productDetails=[arrayRecentDeals objectAtIndex:indexPath.item];

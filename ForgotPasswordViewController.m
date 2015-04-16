@@ -7,6 +7,9 @@
 //
 
 #import "ForgotPasswordViewController.h"
+#import "DefineServerLinks.h"
+#import "ValidationManger.h"
+#import "InterfaceManager.h"
 
 
 @interface ForgotPasswordViewController ()
@@ -38,6 +41,11 @@
     
     
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyBoard)];
+    
+    
+    [self.view addGestureRecognizer:tap];
+
     
     
     
@@ -49,7 +57,9 @@
     
 }
 
-
+-(void)dismissKeyBoard{
+    [_textFieldEmail resignFirstResponder];
+ }
 - (IBAction)buttonActionBack:(id)sender {
     
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -58,8 +68,63 @@
 - (IBAction)ActionSubmit:(id)sender {
     
     
+    [self dismissKeyBoard];
+    [_buttonSubmit setEnabled:NO];
+    
+    if (![ValidationManger validateEmail:_textFieldEmail.text]) {
+        
+        
+        [_textFieldEmail becomeFirstResponder];
+        
+        [InterfaceManager DisplayAlertWithMessage:@"Enter a valid Email"];
+        
+    }else{
+    
+    NSString *PostData = [NSString stringWithFormat:@"email=%@",_textFieldEmail.text];
+    NSLog(@"Request: %@", PostData);
     
     
+    BinSystemsServerConnectionHandler * AuthenticationServer  = [[BinSystemsServerConnectionHandler alloc]initWithURL:kServerLink_ForgetPassword PostData:PostData];
+    
+    
+    [AuthenticationServer StartServerConnectionWithCompletionHandler:@"POST":^(NSDictionary *JSONDict) {
+        
+        
+        
+        
+        NSString * Result1 = [JSONDict valueForKey:@"status"];
+        
+        
+        
+        if ([Result1 isEqualToString:@"Success"]) {
+            
+        
+           
+            [InterfaceManager DisplayAlertWithMessage:[JSONDict valueForKey:@"message"]];
+            
+            
+            
+        }else{
+          
+             [InterfaceManager DisplayAlertWithMessage:[JSONDict valueForKey:@"message"]];
+            
+        }
+        
+        [_buttonSubmit setEnabled:YES];
+        
+    } FailBlock:^(NSString *Error) {
+        
+        NSLog(@"error");
+        
+        [_buttonSubmit setEnabled:YES];
+        
+        
+    }];
+    
+    
+
+    
+    }
     
     
     

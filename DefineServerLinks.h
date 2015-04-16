@@ -28,6 +28,8 @@
 #define kServerLink_getcustomerkart @"http://talenweave.com/qatardeals2/index.php?route=common/api/getCustomerCart"
 
 #define kServerLink_removeCartItem @"http://talenweave.com/qatardeals2/index.php?route=common/api/removeCart"
+#define kServerLink_removeWishListItem @"http://talenweave.com/qatardeals2/index.php?route=common/api/removeWishlist"
+
 
 #define kServerLink_getWishList @"http://talenweave.com/qatardeals2/index.php?route=common/api/getCustomerWishlist"
 
@@ -55,3 +57,5 @@
 
 
 #define kServerLink_getCanceledOrders @"http://talenweave.com/qatardeals2/index.php?route=common/api/getCustomerCancelledOrders"
+
+#define kServerLink_ForgetPassword @"http://talenweave.com/qatardeals2/index.php?route=common/api/forgotPasswordMob"

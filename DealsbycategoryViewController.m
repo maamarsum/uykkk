@@ -189,6 +189,10 @@
     
     [tableFilterCategories reloadData];
     
+    
+    
+    tableViewProductList.frame=collectionViewGridDetails.frame;
+    
   //  [tableFilterFinalSelection reloadData];
     
     [self populateTable];

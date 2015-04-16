@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "InterfaceManager.h"
+#import "BinSystemsServerConnectionHandler.h"
+#import "DefineServerLinks.h"
 
 @interface WishlistViewController : UIViewController<UITableViewDataSource,UITableViewDataSource>
 
+- (IBAction)actionDeleteRow:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *tableViewWishList;
 @end

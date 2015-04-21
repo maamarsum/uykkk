@@ -20,6 +20,7 @@
 @property(nonatomic,strong) TabBarController * appTabBar;
 @property (nonatomic,strong) NSArray *arrayMainMenuItems;
 @property (nonatomic,strong) UINavigationController * firstTabNavigationController;
+@property (nonatomic,strong) NSArray * arrayCountryList;
 
 +(AppGlobalVariables *)sharedInstance;
 @end

@@ -12,10 +12,17 @@
 #import "ContactsViewController.h"
 #import "LoginViewController.h"
 #import "MyordersViewController.h"
+#import "KLCPopup.h"
+#import "ViewSelectCountryNLanguage.h"
+#import "AppGlobalVariables.h"
+#import "BinSystemsAppManager.h"
+#import "DefineServerLinks.h"
+#import "InterfaceManager.h"
 
-@interface MoreViewController (){
+@interface MoreViewController ()
+{
     
-   
+    NSArray * arrayCountryList;
 }
 
 @end
@@ -39,15 +46,16 @@
 
    
     // Do any additional setup after loading the view.
+    
+    
+    [self fetchCountryLIst];
+    
+    
+    
 }
 
 
-- (IBAction)Buttonback:(id)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
- 
+
 
 
 - (IBAction)Buttonmyorders:(id)sender {
@@ -59,6 +67,61 @@
     
     
 }
+-(void) fetchCountryLIst
+{
+  
+    arrayCountryList = [[AppGlobalVariables sharedInstance].arrayCountryList copy];
+    
+    if (arrayCountryList.count == 0) {
+     
+        BinSystemsServerConnectionHandler * AuthenticationServer  = [[BinSystemsServerConnectionHandler alloc]initWithURL:kServerLink_getCountryList PostData:nil];
+        
+        
+        [AuthenticationServer StartServerConnectionWithCompletionHandler:@"GET":^(NSDictionary *JSONDict) {
+            
+            
+            
+            
+            NSString * status = [JSONDict valueForKey:@"status"];
+            
+            if ([status isEqualToString:@"Success"]) {
+                
+                arrayCountryList = [JSONDict valueForKey:@"data"];
+                
+                [AppGlobalVariables sharedInstance].arrayCountryList = arrayCountryList;
+                
+                
+                
+            }else{
+                
+               
+                
+            }
+            
+            
+            
+        } FailBlock:^(NSString *Error) {
+            
+            NSLog(@"error");
+            
+            
+            
+            
+        }];
+        
+        
+    }
+    
+    
+}
+-(void) fetchLanguageList
+{
+    
+    
+    
+    
+}
+
 /*
 #pragma mark - Navigation
 
@@ -70,4 +133,40 @@
 }
 */
 
+- (IBAction)ActionSelectCountry:(id)sender {
+    
+    
+    if (arrayCountryList.count>0) {
+        
+        ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+      //   ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]init];
+        
+       // ViewSelectCountryNLanguage.
+        
+        
+        
+        viewCountryList.arrayTableContents = arrayCountryList;
+        
+        [viewCountryList.tableViewMain reloadData];
+        
+        
+        
+        KLCPopup * popupCountry = [KLCPopup popupWithContentView:viewCountryList];
+        
+        
+        
+        
+        
+        [popupCountry show];
+
+        
+    }
+    
+    
+    
+    
+}
+
+- (IBAction)ActionSelectLanguage:(id)sender {
+}
 @end

@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InterfaceManager.h"
+#import "DefineServerLinks.h"
+#import "BinSystemsServerConnectionHandler.h"
 
 @interface AccountViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *labelFirstName;
+@property (weak, nonatomic) IBOutlet UILabel *labelLastName;
+@property (weak, nonatomic) IBOutlet UILabel *labelEmail;
+@property (weak, nonatomic) IBOutlet UILabel *labelTelephone;
+@property (weak, nonatomic) IBOutlet UILabel *labelFax;
+
+
+
 
 @end

@@ -27,8 +27,70 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _labelFirstName.text=_labelLastName.text=_labelEmail.text=_labelTelephone.text=_labelFax.text=@"";
+    
+    [self fetchUserData];
+    
 }
-
+-(void) fetchUserData
+{
+    
+    NSString *PostData = [NSString stringWithFormat:@"customer_id=%@",@"1"];
+    NSLog(@"Request: %@", PostData);
+    
+    
+    BinSystemsServerConnectionHandler * AuthenticationServer  = [[BinSystemsServerConnectionHandler alloc]initWithURL:kServerLink_getUserDetails PostData:PostData];
+    
+    
+    [AuthenticationServer StartServerConnectionWithCompletionHandler:@"POST":^(NSDictionary *JSONDict) {
+        
+        
+        
+        
+        NSString * Result1 = [JSONDict valueForKey:@"status"];
+        
+        if ([Result1 isEqualToString:@"Success"]) {
+            
+            NSDictionary * dicUdetails = [[JSONDict valueForKey:@"data"] objectAtIndex:0];
+            
+            
+            
+            
+            _labelFirstName.text = [dicUdetails valueForKey:@"addressfirstname"];
+            _labelLastName.text = [dicUdetails valueForKey:@"addresslastname"];
+            _labelEmail.text = [dicUdetails valueForKey:@"email"];
+            _labelTelephone.text = [dicUdetails valueForKey:@"telephone"];
+            _labelFax.text = [dicUdetails valueForKey:@"fax"];
+            
+            
+            
+            
+            
+            
+        }else{
+            
+            
+            
+            [InterfaceManager DisplayAlertWithMessage:@"Invalid data recieved"];
+        }
+        
+        
+        
+    } FailBlock:^(NSString *Error) {
+        
+        NSLog(@"error");
+        
+        
+        
+        
+    }];
+    
+    
+    
+    
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

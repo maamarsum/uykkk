@@ -9,7 +9,7 @@
 #import "AppGlobalVariables.h"
 
 @implementation AppGlobalVariables
-@synthesize arrayMainMenuItems,appTabBar,firstTabNavigationController;
+@synthesize arrayMainMenuItems,appTabBar,firstTabNavigationController,arrayCountryList;
 static AppGlobalVariables *instance=nil;
 
 -(id)init
@@ -20,6 +20,8 @@ static AppGlobalVariables *instance=nil;
         
         //appTabBar = [TabBarController new];
         arrayMainMenuItems = [NSArray new];
+        arrayCountryList = [NSArray new];
+        
         
     }
     return self;

@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface MoreViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *labelSelectedCountry;
+@property (weak, nonatomic) IBOutlet UILabel *labelSelectedLanguage;
+- (IBAction)ActionSelectCountry:(id)sender;
+- (IBAction)ActionSelectLanguage:(id)sender;
 
 @end

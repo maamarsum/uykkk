@@ -10,11 +10,14 @@
 
 IB_DESIGNABLE
 
-@interface TopBarView : UIView
+@interface TopBarView : UIView < UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 - (IBAction)buttonActionMenu:(id)sender;
 //+(TopBarView*) getSharedInstance;
 + (id) loadFromNib;
 
 //@property (nonatomic, weak) IBOutlet UIView *view;
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBarMain;
+
 
 @end

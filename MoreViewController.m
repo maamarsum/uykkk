@@ -138,27 +138,29 @@
     
     if (arrayCountryList.count>0) {
         
-        ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+        ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
       //   ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]init];
         
-       // ViewSelectCountryNLanguage.
+        // Instantiate a referenced view (assuming outlet has hooked up in XIB).
         
+        viewCountryList.tableViewMain.delegate=(id)self;
+        viewCountryList.tableViewMain.dataSource=(id)self;
         
         
         viewCountryList.arrayTableContents = arrayCountryList;
-        
-        [viewCountryList.tableViewMain reloadData];
-        
+        NSLog(@"countrytable%@",viewCountryList.arrayTableContents);
         
         
+        NSLog(@"countrytablemain%@",viewCountryList.tableViewMain);
+        viewCountryList.backgroundColor=[UIColor yellowColor];
         KLCPopup * popupCountry = [KLCPopup popupWithContentView:viewCountryList];
         
         
+       popupCountry.backgroundColor=[UIColor redColor];
         
-        
-        
+       
         [popupCountry show];
-
+[viewCountryList reloadTable];
         
     }
     

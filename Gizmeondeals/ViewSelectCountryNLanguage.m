@@ -23,26 +23,28 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-        // initilize all your UIView components
-        
-        
-        tableViewMain.dataSource=self;
-        tableViewMain.delegate=self;
-        arrayTableContents = [NSArray new];
-        
-        [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] ;
-        
-        
-        self.bounds = self.view.bounds;
-        
-        [self addSubview:self.view];
-       
-        
-        
-        
-    }
+    [self.view addSubview:tableViewMain];
+    tableViewMain.backgroundColor=[UIColor whiteColor];
+//    if (self) {
+//        // Initialization code
+//        // initilize all your UIView components
+//        
+//        
+//        tableViewMain.dataSource=self;
+//        tableViewMain.delegate=self;
+//      //  arrayTableContents = [NSArray new];
+//        
+//        [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] ;
+//        
+//        
+//        self.bounds = self.view.bounds;
+//        
+//        [self addSubview:self.view];
+//       
+//        
+//        
+//        
+//    }
     return self;
 }
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -103,7 +105,7 @@
 {
     
     
-    
+
     
     
     
@@ -112,7 +114,7 @@
 {
     
     [tableViewMain reloadData];
-    
+    NSLog(@"%@",arrayTableContents);
 }
 
 @end

@@ -35,6 +35,11 @@
 
 #define kServerLink_getCategories @"http://talenweave.com/qatardeals2/index.php?route=common/api/getCategories"
 
+#define kServerLink_getCountryList @"http://talenweave.com/qatardeals2/index.php?route=common/api/getCountryDetailsMob"
+
+
+#define kServerLink_getUserDetails @"http://talenweave.com/qatardeals2/index.php?route=common/api/getCustomerAddressMob"
+
 
 #define kServerLink_addtokart @"http://talenweave.com/qatardeals2/index.php?route=common/api/addtoCart"
 

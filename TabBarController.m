@@ -75,11 +75,11 @@ static TabBarController * instance;
     
     
     
-//    tabBarItem1.title = @"Home";
-//   tabBarItem2.title = @"My Cart";
-//    tabBarItem3.title = @"WishList";
-//   tabBarItem4.title = @"Account";
-//    tabBarItem5.title = @"More";
+    tabBarItem1.title = @"Home";
+   tabBarItem2.title = @"My Cart";
+    tabBarItem3.title = @"WishList";
+   tabBarItem4.title = @"Account";
+    tabBarItem5.title = @"More";
     
     
     UIImage *image11= [UIImage imageNamed:@"myhomeicon"];

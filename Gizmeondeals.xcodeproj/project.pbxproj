@@ -102,6 +102,9 @@
 		9FD0D20A1AB94CB6003F4F2C /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0D2091AB94CB6003F4F2C /* SlideNavigationController.m */; };
 		9FD0D2191AB94CF7003F4F2C /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD0D2101AB94CF6003F4F2C /* LeftMenuViewController.m */; };
 		9FDC19161ADD3427004E4AD5 /* delete_trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FDC19151ADD3427004E4AD5 /* delete_trash.png */; };
+		9FF628301AE4CBDF000DA334 /* KLCPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF6282F1AE4CBDF000DA334 /* KLCPopup.m */; };
+		9FF628331AE4CDE9000DA334 /* ViewSelectCountryNLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF628321AE4CDE9000DA334 /* ViewSelectCountryNLanguage.m */; };
+		9FF628351AE4CE23000DA334 /* ViewSelectCountryNLanguage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FF628341AE4CE23000DA334 /* ViewSelectCountryNLanguage.xib */; };
 		B93DB19B1A94A39B003FEBB1 /* CredentialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B93DB19A1A94A39B003FEBB1 /* CredentialManager.m */; };
 		B951D6DF1AA85D7400D740CA /* ProductOrganizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B951D6DE1AA85D7400D740CA /* ProductOrganizer.m */; };
 		B951D6E01AA8638000D740CA /* ProductOrganizer.h in Sources */ = {isa = PBXBuildFile; fileRef = B951D6DD1AA85D7400D740CA /* ProductOrganizer.h */; };
@@ -273,6 +276,11 @@
 		9FD0D20F1AB94CF6003F4F2C /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
 		9FD0D2101AB94CF6003F4F2C /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
 		9FDC19151ADD3427004E4AD5 /* delete_trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_trash.png; sourceTree = "<group>"; };
+		9FF6282E1AE4CBDF000DA334 /* KLCPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLCPopup.h; sourceTree = "<group>"; };
+		9FF6282F1AE4CBDF000DA334 /* KLCPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLCPopup.m; sourceTree = "<group>"; };
+		9FF628311AE4CDE9000DA334 /* ViewSelectCountryNLanguage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewSelectCountryNLanguage.h; path = Gizmeondeals/ViewSelectCountryNLanguage.h; sourceTree = "<group>"; };
+		9FF628321AE4CDE9000DA334 /* ViewSelectCountryNLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewSelectCountryNLanguage.m; path = Gizmeondeals/ViewSelectCountryNLanguage.m; sourceTree = "<group>"; };
+		9FF628341AE4CE23000DA334 /* ViewSelectCountryNLanguage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewSelectCountryNLanguage.xib; sourceTree = "<group>"; };
 		B93DB1991A94A39B003FEBB1 /* CredentialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialManager.h; sourceTree = "<group>"; };
 		B93DB19A1A94A39B003FEBB1 /* CredentialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialManager.m; sourceTree = "<group>"; };
 		B951D6DD1AA85D7400D740CA /* ProductOrganizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductOrganizer.h; sourceTree = "<group>"; };
@@ -334,6 +342,7 @@
 		3318D5D11A70B5F4003B60D6 = {
 			isa = PBXGroup;
 			children = (
+				9FF6282D1AE4CBDF000DA334 /* KLCPopup */,
 				9F632B7F1ADBA77400B25450 /* DropDownView */,
 				B976376B1AB17B2C00C53F71 /* Processsectionheaderview.h */,
 				B976376C1AB17B2C00C53F71 /* Processsectionheaderview.m */,
@@ -578,6 +587,9 @@
 		3318D73B1A79F93F003B60D6 /* views+xib */ = {
 			isa = PBXGroup;
 			children = (
+				9FF628311AE4CDE9000DA334 /* ViewSelectCountryNLanguage.h */,
+				9FF628321AE4CDE9000DA334 /* ViewSelectCountryNLanguage.m */,
+				9FF628341AE4CE23000DA334 /* ViewSelectCountryNLanguage.xib */,
 				B99F0E7A1AA0403500C575DE /* logo2.png */,
 				B99F0E781AA03B6800C575DE /* TopBarView.xib */,
 				B99F0E731AA03B2C00C575DE /* TopBarView.h */,
@@ -683,6 +695,15 @@
 				9FD0D1F71AB94CA6003F4F2C /* Animations */,
 			);
 			name = SplitMenu;
+			sourceTree = "<group>";
+		};
+		9FF6282D1AE4CBDF000DA334 /* KLCPopup */ = {
+			isa = PBXGroup;
+			children = (
+				9FF6282E1AE4CBDF000DA334 /* KLCPopup.h */,
+				9FF6282F1AE4CBDF000DA334 /* KLCPopup.m */,
+			);
+			path = KLCPopup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -792,6 +813,7 @@
 				3318D76F1A7F4BA5003B60D6 /* login.png in Resources */,
 				9F4738781ABADB7E00BA0EEB /* about1.png in Resources */,
 				9F47387E1ABADB7E00BA0EEB /* gmail1.png in Resources */,
+				9FF628351AE4CE23000DA334 /* ViewSelectCountryNLanguage.xib in Resources */,
 				9F4738831ABADB7E00BA0EEB /* twitter1.png in Resources */,
 				3358857E1AE123C700A814F0 /* mywishlisticon.png in Resources */,
 				3318D7641A7F384C003B60D6 /* more.png in Resources */,
@@ -877,6 +899,7 @@
 				3318D7511A7C9C59003B60D6 /* BinSystemsAppManager.m in Sources */,
 				3318D62C1A70BAE7003B60D6 /* BinSystemsServerConnectionHandler.m in Sources */,
 				3318D65D1A70C4DE003B60D6 /* ContactsViewController.m in Sources */,
+				9FF628301AE4CBDF000DA334 /* KLCPopup.m in Sources */,
 				3318D6611A70C4DE003B60D6 /* ModelAddHorseGlobalVariable.m in Sources */,
 				9FD0D20A1AB94CB6003F4F2C /* SlideNavigationController.m in Sources */,
 				3318D7D81A888D0F003B60D6 /* OrderdetailViewController.m in Sources */,
@@ -884,6 +907,7 @@
 				B951D6DF1AA85D7400D740CA /* ProductOrganizer.m in Sources */,
 				B962212F1A94A44D00FB64A6 /* FDKeychain.m in Sources */,
 				3318D61D1A70BA85003B60D6 /* ModelUser.m in Sources */,
+				9FF628331AE4CDE9000DA334 /* ViewSelectCountryNLanguage.m in Sources */,
 				3318D7381A78F5CD003B60D6 /* ReviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

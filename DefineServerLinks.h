@@ -10,8 +10,8 @@
 
 #define kServerLink_createUser @"http://talenweave.com/qatardeals2/index.php?route=common/api/register"
 
-#define kServerLink_forgot @"http://122.248.234.208:8080/smapi/forgot"
-
+#define kServerLink_countrySelection @"http://talenweave.com/qatardeals2/index.php?route=common/api/getCountryDetailsMob"
+#define kServerLink_zoneSelection @"http://talenweave.com/qatardeals2/index.php?route=common/api/getZoneDetailsMob"
 
 
 

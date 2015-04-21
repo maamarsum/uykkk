@@ -164,7 +164,7 @@
     
     if (indexPath.row < arrayPopulateTable.count) {
         
-        UITableViewCell *cellForProductList= [tableView dequeueReusableCellWithIdentifier:@"HorseList" forIndexPath:indexPath];
+        UITableViewCell *cellForProductList= [tableView dequeueReusableCellWithIdentifier:@"cartList" forIndexPath:indexPath];
 
          ModelProduct * productObj =  [arrayPopulateTable objectAtIndex:indexPath.row];
         UILabel * labelName = (UILabel*) [cellForProductList viewWithTag:101];

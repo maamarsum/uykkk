@@ -154,8 +154,8 @@
 
 -(void)AuthenticateCredentialsWithServer{
     
-    GUsername=@"mmm@g.com";
-    GPassword=@"mmmm";
+//    GUsername=@"mmm@g.com";
+//    GPassword=@"mmmm";
     
     if (GPassword && GUsername) {
         

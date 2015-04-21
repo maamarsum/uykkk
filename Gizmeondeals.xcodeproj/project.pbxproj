@@ -62,6 +62,11 @@
 		3318D7811A7F8ED1003B60D6 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3318D7801A7F8ED1003B60D6 /* AccountViewController.m */; };
 		3318D7D51A833FF6003B60D6 /* DiscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3318D7D41A833FF6003B60D6 /* DiscriptionViewController.m */; };
 		3318D7D81A888D0F003B60D6 /* OrderdetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3318D7D71A888D0E003B60D6 /* OrderdetailViewController.m */; };
+		3358857A1AE123C700A814F0 /* myaccounticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 335885751AE123C700A814F0 /* myaccounticon.png */; };
+		3358857B1AE123C700A814F0 /* mycarticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 335885761AE123C700A814F0 /* mycarticon.png */; };
+		3358857C1AE123C700A814F0 /* myhomeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 335885771AE123C700A814F0 /* myhomeicon.png */; };
+		3358857D1AE123C700A814F0 /* myoverflowicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 335885781AE123C700A814F0 /* myoverflowicon.png */; };
+		3358857E1AE123C700A814F0 /* mywishlisticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 335885791AE123C700A814F0 /* mywishlisticon.png */; };
 		3364EEE81AC9374E00E9635A /* ReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3364EEE61AC9374E00E9635A /* ReviewTableViewCell.m */; };
 		3364EEE91AC9374E00E9635A /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3364EEE71AC9374E00E9635A /* ReviewTableViewCell.xib */; };
 		3364EF001AC96EFB00E9635A /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 3364EEFE1AC96EFB00E9635A /* Icon-40.png */; };
@@ -214,6 +219,11 @@
 		3318D7D41A833FF6003B60D6 /* DiscriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscriptionViewController.m; path = ../DiscriptionViewController.m; sourceTree = "<group>"; };
 		3318D7D61A888D0E003B60D6 /* OrderdetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderdetailViewController.h; path = ../OrderdetailViewController.h; sourceTree = "<group>"; };
 		3318D7D71A888D0E003B60D6 /* OrderdetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderdetailViewController.m; path = ../OrderdetailViewController.m; sourceTree = "<group>"; };
+		335885751AE123C700A814F0 /* myaccounticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myaccounticon.png; sourceTree = "<group>"; };
+		335885761AE123C700A814F0 /* mycarticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mycarticon.png; sourceTree = "<group>"; };
+		335885771AE123C700A814F0 /* myhomeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myhomeicon.png; sourceTree = "<group>"; };
+		335885781AE123C700A814F0 /* myoverflowicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myoverflowicon.png; sourceTree = "<group>"; };
+		335885791AE123C700A814F0 /* mywishlisticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mywishlisticon.png; sourceTree = "<group>"; };
 		3364EEE51AC9374E00E9635A /* ReviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewTableViewCell.h; sourceTree = "<group>"; };
 		3364EEE61AC9374E00E9635A /* ReviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewTableViewCell.m; sourceTree = "<group>"; };
 		3364EEE71AC9374E00E9635A /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
@@ -440,6 +450,7 @@
 		3318D6141A70BA51003B60D6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				335885741AE123A100A814F0 /* tabbaricons */,
 				9F4CB0931ADF8E0200F3BB3C /* back_arrow.png */,
 				9FDC19151ADD3427004E4AD5 /* delete_trash.png */,
 				9F632B761AD3D43600B25450 /* slidebackground.jpg */,
@@ -615,6 +626,18 @@
 			name = "App manager";
 			sourceTree = "<group>";
 		};
+		335885741AE123A100A814F0 /* tabbaricons */ = {
+			isa = PBXGroup;
+			children = (
+				335885751AE123C700A814F0 /* myaccounticon.png */,
+				335885761AE123C700A814F0 /* mycarticon.png */,
+				335885771AE123C700A814F0 /* myhomeicon.png */,
+				335885781AE123C700A814F0 /* myoverflowicon.png */,
+				335885791AE123C700A814F0 /* mywishlisticon.png */,
+			);
+			name = tabbaricons;
+			sourceTree = "<group>";
+		};
 		9F632B7F1ADBA77400B25450 /* DropDownView */ = {
 			isa = PBXGroup;
 			children = (
@@ -745,6 +768,7 @@
 				3318D6161A70BA62003B60D6 /* Men_at_work.png in Resources */,
 				3318D6771A70C960003B60D6 /* menuright.png in Resources */,
 				3318D7731A7F4BB5003B60D6 /* contactus.png in Resources */,
+				3358857A1AE123C700A814F0 /* myaccounticon.png in Resources */,
 				3318D6751A70C919003B60D6 /* menuleft.png in Resources */,
 				3318D76B1A7F46D8003B60D6 /* user.png in Resources */,
 				B9D6CCD21AB6D8D600DF9508 /* wishlisticon.png in Resources */,
@@ -753,7 +777,9 @@
 				B99F0E791AA03B6800C575DE /* TopBarView.xib in Resources */,
 				3318D7301A7275B2003B60D6 /* CategoryTableViewCell.xib in Resources */,
 				9F4738821ABADB7E00BA0EEB /* rateus1.png in Resources */,
+				3358857B1AE123C700A814F0 /* mycarticon.png in Resources */,
 				3318D6791A70C9AF003B60D6 /* cart.png in Resources */,
+				3358857C1AE123C700A814F0 /* myhomeicon.png in Resources */,
 				B99F0E7B1AA0403500C575DE /* logo2.png in Resources */,
 				3318D6711A70C575003B60D6 /* DealstableviewcellTableViewCell.xib in Resources */,
 				B9D6CCCF1AB6D8D600DF9508 /* karticon.png in Resources */,
@@ -767,6 +793,7 @@
 				9F4738781ABADB7E00BA0EEB /* about1.png in Resources */,
 				9F47387E1ABADB7E00BA0EEB /* gmail1.png in Resources */,
 				9F4738831ABADB7E00BA0EEB /* twitter1.png in Resources */,
+				3358857E1AE123C700A814F0 /* mywishlisticon.png in Resources */,
 				3318D7641A7F384C003B60D6 /* more.png in Resources */,
 				9F47387D1ABADB7E00BA0EEB /* feedback1.png in Resources */,
 				9F47387F1ABADB7E00BA0EEB /* lanenglish1.png in Resources */,
@@ -783,6 +810,7 @@
 				3318D5E81A70B5F4003B60D6 /* InfoPlist.strings in Resources */,
 				3364EF011AC96EFB00E9635A /* Icon-40@2x.png in Resources */,
 				9FDC19161ADD3427004E4AD5 /* delete_trash.png in Resources */,
+				3358857D1AE123C700A814F0 /* myoverflowicon.png in Resources */,
 				9F4CB0941ADF8E0200F3BB3C /* back_arrow.png in Resources */,
 				3318D7621A7CDB03003B60D6 /* calender.png in Resources */,
 				3364EEE91AC9374E00E9635A /* ReviewTableViewCell.xib in Resources */,

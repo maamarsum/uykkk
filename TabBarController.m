@@ -82,24 +82,24 @@ static TabBarController * instance;
 //    tabBarItem5.title = @"More";
     
     
-    UIImage *image11= [UIImage imageNamed:@"homeicon"];
+    UIImage *image11= [UIImage imageNamed:@"myhomeicon"];
                            
   //  UIImage *image12= [UIImage imageNamed:@"horse-selected"];
      
-    UIImage *image21= [UIImage imageNamed:@"karticon"];
+    UIImage *image21= [UIImage imageNamed:@"mycarticon"];
     
   //  UIImage *image22= [UIImage imageNamed:@"horse-selected"];
     
     
-    UIImage *image31= [UIImage imageNamed:@"wishlisticon"];
+    UIImage *image31= [UIImage imageNamed:@"mywishlisticon"];
     
 //    UIImage *image32= [UIImage imageNamed:@"userinfo-selected"];
-    UIImage *image41= [UIImage imageNamed:@"usericon"];
+    UIImage *image41= [UIImage imageNamed:@"myaccounticon"];
     
  //   UIImage *image42= [UIImage imageNamed:@"horse-selected"];
   
     
-    UIImage *image51= [UIImage imageNamed:@"moreicon1"];
+    UIImage *image51= [UIImage imageNamed:@"myoverflowicon"];
     
  //   UIImage *image52= [UIImage imageNamed:@"calender-selected"];
     
@@ -139,7 +139,7 @@ static TabBarController * instance;
  }
 - (void)viewDidLayoutSubviews
 {
-    CGFloat tabBarHeight = 63.0;
+    CGFloat tabBarHeight = 67.0;
     CGRect frame = self.view.frame;
     self.tabBar.frame = CGRectMake(0, frame.size.height - tabBarHeight, frame.size.width, tabBarHeight);
 }

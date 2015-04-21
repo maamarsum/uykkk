@@ -84,7 +84,7 @@
     self.navigationController.tabBarController.tabBar.hidden=NO;
     
     
-    Scrollview.frame=CGRectMake(0,150,600,450);
+    Scrollview.frame=CGRectMake(0,97,600,450);
     [Scrollview setContentSize:CGSizeMake(600,1000)];
     
     

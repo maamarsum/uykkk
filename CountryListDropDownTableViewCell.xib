@@ -25,7 +25,7 @@
             <connections>
                 <outlet property="labelCountryName" destination="WAF-Ds-wUP" id="sNu-bP-63Q"/>
             </connections>
-            <point key="canvasLocation" x="307" y="306"/>
+            <point key="canvasLocation" x="368" y="181"/>
         </tableViewCell>
     </objects>
 </document>

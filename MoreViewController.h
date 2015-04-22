@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewSelectCountryNLanguage.h"
 
-@interface MoreViewController : UIViewController
+@interface MoreViewController : UIViewController<PopupDelegate>
+
 @property (weak, nonatomic) IBOutlet UILabel *labelSelectedCountry;
 @property (weak, nonatomic) IBOutlet UILabel *labelSelectedLanguage;
 - (IBAction)ActionSelectCountry:(id)sender;
 - (IBAction)ActionSelectLanguage:(id)sender;
+
+
 
 @end

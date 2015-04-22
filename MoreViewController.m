@@ -23,6 +23,7 @@
 {
     
     NSArray * arrayCountryList;
+    KLCPopup * popupCountry;
 }
 
 @end
@@ -46,6 +47,7 @@
 
    
     // Do any additional setup after loading the view.
+    
     
     
     [self fetchCountryLIst];
@@ -138,30 +140,32 @@
     
     if (arrayCountryList.count>0) {
         
-        ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
-      //   ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]init];
         
-        // Instantiate a referenced view (assuming outlet has hooked up in XIB).
         
-        viewCountryList.tableViewMain.delegate=(id)self;
-        viewCountryList.tableViewMain.dataSource=(id)self;
+        ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]init];
+        viewCountryList.frame = CGRectMake(0, 0, 200, 300);
         
         
         viewCountryList.arrayTableContents = arrayCountryList;
-        NSLog(@"countrytable%@",viewCountryList.arrayTableContents);
+       
+        viewCountryList.delegate=self;
         
+        [viewCountryList setTitle:@"Select Country"];
         
-        NSLog(@"countrytablemain%@",viewCountryList.tableViewMain);
-        viewCountryList.backgroundColor=[UIColor yellowColor];
-        KLCPopup * popupCountry = [KLCPopup popupWithContentView:viewCountryList];
+         popupCountry = [KLCPopup popupWithContentView:viewCountryList];
         
-        
-       popupCountry.backgroundColor=[UIColor redColor];
-        
+   
        
         [popupCountry show];
+        
+        
 [viewCountryList reloadTable];
         
+        
+    }else{
+        
+        
+        [InterfaceManager DisplayAlertWithMessage:@"Debugmsg:Not loaded"];
     }
     
     
@@ -170,5 +174,15 @@
 }
 
 - (IBAction)ActionSelectLanguage:(id)sender {
+}
+
+-(void)getValueFromList:(NSDictionary *)selectedValue
+{
+    
+    [popupCountry dismiss:YES];
+    _labelSelectedCountry.text = [selectedValue valueForKey:@"name"];
+    
+    
+    
 }
 @end

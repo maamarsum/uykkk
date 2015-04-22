@@ -24,49 +24,43 @@
 {
     self = [super initWithFrame:frame];
     [self.view addSubview:tableViewMain];
-    tableViewMain.backgroundColor=[UIColor whiteColor];
-//    if (self) {
-//        // Initialization code
-//        // initilize all your UIView components
-//        
-//        
-//        tableViewMain.dataSource=self;
-//        tableViewMain.delegate=self;
-//      //  arrayTableContents = [NSArray new];
-//        
-//        [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] ;
-//        
-//        
-//        self.bounds = self.view.bounds;
-//        
-//        [self addSubview:self.view];
-//       
-//        
-//        
-//        
-//    }
+   // tableViewMain.backgroundColor=[UIColor whiteColor];
+    if (self) {
+        
+        NSLog(@"%.2f %.2f %.2f %.2f",frame.origin.x, frame.origin.y, frame.size.width, frame.size.height);
+        
+        [self customeInit];
+        
+    }
     return self;
 }
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        if (self.subviews.count == 0) {
-            
-            UINib *nib = [UINib nibWithNibName:NSStringFromClass([self class]) bundle:nil];
-            UIView *subview = [[nib instantiateWithOwner:self options:nil] objectAtIndex:0];
-            subview.frame = self.bounds;
-            [self addSubview:subview];
         
-//        NSString *className = NSStringFromClass([self class]);
-//         [[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] ;
-//        [self addSubview:self.view];
-        
-    }
+    
+    
+    
+    
     }
     return self;
 }
+-(void) customeInit
+{
+    
+    
+  self.view = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil]firstObject] ;
+    
+    
+    self.bounds = self.view.bounds;
+    
+    [self addSubview:self.view];
+    
 
+    
+    
+}
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     
@@ -93,18 +87,21 @@
     }
     
     
-    cell.textLabel.text = (NSString*)[arrayTableContents objectAtIndex:indexPath.row];
-    
-    // country name
     cell.textLabel.text = [[arrayTableContents objectAtIndex:indexPath.row] valueForKey:@"name"];
     
     
     return cell;
 }
--(void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    NSDictionary *dic = [arrayTableContents objectAtIndex:indexPath.row];
     
+    if ([self.delegate respondsToSelector:@selector(getValueFromList:)])
+    {
+        [self.delegate getValueFromList:dic];
+    }
 
     
     
@@ -114,7 +111,11 @@
 {
     
     [tableViewMain reloadData];
-    NSLog(@"%@",arrayTableContents);
+    
 }
-
+-(void)setTitle :(NSString *)titleString
+{
+    _labelTitleForView.text = titleString;
+    
+}
 @end

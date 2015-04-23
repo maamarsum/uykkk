@@ -922,6 +922,25 @@
         
         [self.navigationController popViewControllerAnimated:NO];
     }
+
+
+-(IBAction)shareButtonAction:(id)sender {
     
+    
+    ModelProduct * product = [ModelProduct new];
+      product = thisProduct;
+    
+    
+   // NSString *nameToShare = product.productName;
+    
+    NSURL * imgUrl =[NSURL URLWithString:[@"http://talenweave.com/qatardeals2/index.php?route=product/product&product_id=" stringByAppendingString:product.productId]];
+    
+    NSLog(@"website %@",imgUrl);
+   // NSString *priceToShare = product.productPrice;
+    NSArray *itemsToShare = @[imgUrl];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll]; //or whichever you don't need
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
 
     @end

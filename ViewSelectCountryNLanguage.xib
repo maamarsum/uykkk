@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewSelectCountryNLanguage">
+            <connections>
+                <outlet property="labelTitleForView" destination="emX-Y9-vwg" id="K28-Ft-qS2"/>
+                <outlet property="tableViewMain" destination="ZTx-Kd-Z50" id="9cI-58-ANc"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ViewSelectCountryNLanguage">
             <rect key="frame" x="0.0" y="0.0" width="327" height="432"/>
@@ -50,6 +55,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="labelTitleForView" destination="emX-Y9-vwg" id="hop-1B-MEU"/>
                 <outlet property="tableViewMain" destination="ZTx-Kd-Z50" id="IqF-Lz-dxl"/>
                 <outlet property="view" destination="ZTx-Kd-Z50" id="cAR-kw-6gA"/>
             </connections>

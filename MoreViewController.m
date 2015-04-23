@@ -23,6 +23,8 @@
 {
     
     NSArray * arrayCountryList;
+    NSArray * arrayLanguageList;
+    KLCPopup * popupCountry;
 }
 
 @end
@@ -48,9 +50,14 @@
     // Do any additional setup after loading the view.
     
     
+    
     [self fetchCountryLIst];
     
+    NSDictionary * English = @{@"name":@"English",@"code":@"1"};
+    NSDictionary * Arabic = @{@"name":@"Arabic",@"code":@"2"};
     
+    
+    arrayLanguageList = [NSArray arrayWithObjects:English,Arabic, nil];
     
 }
 
@@ -138,30 +145,32 @@
     
     if (arrayCountryList.count>0) {
         
-        ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
-      //   ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]init];
         
-        // Instantiate a referenced view (assuming outlet has hooked up in XIB).
         
-        viewCountryList.tableViewMain.delegate=(id)self;
-        viewCountryList.tableViewMain.dataSource=(id)self;
+        ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]init];
+       // viewCountryList.frame = CGRectMake(0, 0, 200, 300);
         
         
         viewCountryList.arrayTableContents = arrayCountryList;
-        NSLog(@"countrytable%@",viewCountryList.arrayTableContents);
+       
+        viewCountryList.delegate=self;
         
+        [viewCountryList setTitle:@"Select Country"];
         
-        NSLog(@"countrytablemain%@",viewCountryList.tableViewMain);
-        viewCountryList.backgroundColor=[UIColor yellowColor];
-        KLCPopup * popupCountry = [KLCPopup popupWithContentView:viewCountryList];
+         popupCountry = [KLCPopup popupWithContentView:viewCountryList];
         
-        
-       popupCountry.backgroundColor=[UIColor redColor];
-        
+   
        
         [popupCountry show];
+        
+        
 [viewCountryList reloadTable];
         
+        
+    }else{
+        
+        
+        [InterfaceManager DisplayAlertWithMessage:@"Debugmsg:Country List Not Found"];
     }
     
     
@@ -170,5 +179,59 @@
 }
 
 - (IBAction)ActionSelectLanguage:(id)sender {
+    
+    
+    
+        
+        ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]init];
+        // viewCountryList.frame = CGRectMake(0, 0, 200, 300);
+        
+        
+        viewCountryList.arrayTableContents = arrayLanguageList;
+        
+        viewCountryList.delegate=self;
+        
+        [viewCountryList setTitle:@"Select Language"];
+        
+        popupCountry = [KLCPopup popupWithContentView:viewCountryList];
+        
+        
+        
+        [popupCountry show];
+        
+        
+        [viewCountryList reloadTable];
+        
+        
+   
+    
+    
+}
+
+-(void) popupView:(id)sender getValueFromList:(NSDictionary *)selectedValue
+{
+    
+    
+    [popupCountry dismiss:YES];
+    
+    sender = (ViewSelectCountryNLanguage*)sender;
+    
+    if ([[sender getTitle] isEqualToString:@"Select Country"]) {
+        
+        _labelSelectedCountry.text = [selectedValue valueForKey:@"name"];
+        
+    }else if ([[sender getTitle] isEqualToString:@"Select Language"]){
+        
+        
+        _labelSelectedLanguage.text = [selectedValue valueForKey:@"name"];
+
+        [AppGlobalVariables sharedInstance].selectedLanguage =[selectedValue valueForKey:@"code"];
+        
+    }
+    
+    
+    
+    
+    
 }
 @end

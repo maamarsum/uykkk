@@ -28,7 +28,10 @@
     // Override point for customization after application launch.
     
     
-    [self loadMenu];
+    [self fetchMenuItems];
+    
+    [self fetchCountryList];
+    
     
     
     
@@ -148,9 +151,9 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
--(void)loadMenu
+-(void)fetchMenuItems
 {
-    alertPleaseWait = [[UIAlertView alloc]initWithTitle:kApplicationName message:@"Loading Menu items" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
+    alertPleaseWait = [[UIAlertView alloc]initWithTitle:kApplicationName message:@"Loading Application data" delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
     
     [alertPleaseWait show];
     
@@ -219,6 +222,45 @@
     
     
     
+    
+}
+-(void)fetchCountryList
+{
+    BinSystemsServerConnectionHandler * AuthenticationServer  = [[BinSystemsServerConnectionHandler alloc]initWithURL:kServerLink_getCountryList PostData:nil];
+    
+    
+    [AuthenticationServer StartServerConnectionWithCompletionHandler:@"GET":^(NSDictionary *JSONDict) {
+        
+        
+        
+        
+        NSString * status = [JSONDict valueForKey:@"status"];
+        
+        if ([status isEqualToString:@"Success"]) {
+            
+           [AppGlobalVariables sharedInstance].arrayCountryList =  [JSONDict valueForKey:@"data"];
+            
+            
+            
+            
+            
+        }else{
+            
+            
+            
+        }
+        
+        
+        
+    } FailBlock:^(NSString *Error) {
+        
+        NSLog(@"error");
+        
+        
+        
+        
+    }];
+
     
 }
 

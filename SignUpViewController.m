@@ -17,11 +17,14 @@
 BOOL valdiated;
 NSArray * arrayManditoryFields;
 NSArray * arrayCountryList;
-DropDownView *dropCountry,*dropRegion;
+
+CGPoint screenCenterPoint;
 
 
 @implementation SignUpViewController
-@synthesize textFieldAddress,textFieldCity,textFieldConfirmPassword,textFieldCOuntryId,textFieldEmail,textFieldFName,textFieldPassword,textFieldPINCode,textFieldSName,textFieldTelephone;
+@synthesize textFieldAddress,textFieldCity,textFieldConfirmPassword,textFieldCOuntryId,textFieldEmail,textFieldFName,textFieldPassword,textFieldPINCode,textFieldSName,textFieldTelephone,textFieldAddress2,textFieldCompany,textFieldFax,textFieldRefferelName,textFieldZone;
+
+@synthesize scrollViewMain;
 
 @synthesize GPassword,GUsername;
 
@@ -43,14 +46,20 @@ DropDownView *dropCountry,*dropRegion;
     [self.navigationController setNavigationBarHidden:NO];
     self.title=@"Sign up";
     
-    textFieldTelephone.delegate=textFieldSName.delegate=textFieldPINCode.delegate=textFieldPassword.delegate=textFieldFName.delegate=textFieldEmail.delegate=textFieldCOuntryId.delegate=textFieldConfirmPassword.delegate=textFieldCity.delegate=textFieldAddress.delegate=self;
+    textFieldTelephone.delegate=textFieldSName.delegate=textFieldPINCode.delegate=textFieldPassword.delegate=textFieldFName.delegate=textFieldEmail.delegate=textFieldCOuntryId.delegate=textFieldConfirmPassword.delegate=textFieldCity.delegate=textFieldAddress.delegate=textFieldAddress2.delegate=textFieldCompany.delegate=textFieldFax.delegate=textFieldRefferelName.delegate=textFieldZone.delegate=self;
     
     arrayCountryList = [NSArray arrayWithObject:@"kajhfk;asjdhfkajsh"];
+
     
-    dropCountry = [[DropDownView alloc]initWithArrayData:arrayCountryList cellHeight:50 heightTableView:300 paddingTop:10 paddingLeft:10 paddingRight:10 refView:textFieldCOuntryId animation:BLENDIN openAnimationDuration:1 closeAnimationDuration:1];
+    scrollViewMain.contentSize = self.view.frame.size;
+    scrollViewMain.frame = self.view.frame;
     
-    dropCountry.delegate=self;
-    //[dropCountry openAnimation];
+    
+    UIGestureRecognizer * gester = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:gester];
+    
+    screenCenterPoint = self.view.center;
     
 }
 
@@ -61,7 +70,6 @@ DropDownView *dropCountry,*dropRegion;
         
         [self.view endEditing:YES];
         
-        [dropCountry openAnimation];
         
         
         
@@ -72,9 +80,9 @@ DropDownView *dropCountry,*dropRegion;
 -(void) validateManditoryFields
     {
         
-        [self RegisterUser];
+      //  [self RegisterUser];
         
-        /*
+        
         
         for (UIView *subView in arrayManditoryFields) {
             
@@ -117,7 +125,7 @@ DropDownView *dropCountry,*dropRegion;
             
         }
         
-        */
+        
     }
 -(BOOL) textFieldShouldReturn:(UITextField *)textField
 {
@@ -158,17 +166,18 @@ DropDownView *dropCountry,*dropRegion;
 -(void) RegisterUser
 {
     
+    
     if([BinSystemsAppManager internetCheck])
     {
-        NSString * fName = @"dummy";
-        NSString * lName = @"dummy";
-        NSString * email = @"kk@kk.com";
-        NSString * address = @"dummy";
-        NSString * telephone = @"1234567890";
+        NSString * fName = textFieldFName.text;
+        NSString * lName = textFieldSName.text;
+        NSString * email = textFieldEmail.text;
+        NSString * address = textFieldAddress.text;
+        NSString * telephone = textFieldTelephone.text;
         NSString * countryid = @"1";
-        NSString * password = @"dummy";
-        NSString * postCode = @"670502";
-        NSString * city = @"dummy";
+        NSString * password = textFieldPassword.text;
+        NSString * postCode = textFieldPINCode.text;
+        NSString * city = textFieldCity.text;
         NSString * fax =@"1";
         NSString * referalName =@"1";
         NSString * company =@"1";
@@ -210,8 +219,8 @@ DropDownView *dropCountry,*dropRegion;
             }else{
                 
 #warning change hard coded values
-                GUsername=@"kk@kk.com";
-                GPassword=@"dummy";
+                GUsername=textFieldEmail.text;
+                GPassword=textFieldPassword.text;
                 
                 [self AuthenticateCredentialsWithServer];
                 
@@ -319,6 +328,60 @@ DropDownView *dropCountry,*dropRegion;
     
     
 }
+
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    return YES;
+}
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    [self.view endEditing:YES];
+    return YES;
+}
+
+
+
+
+-(void)keyboardWillHide:(NSNotification *)notification
+{
+    [UIView animateWithDuration:1 animations:^{
+        
+        self.view.center = screenCenterPoint;
+        
+    }];
+}
+-(void) dismissKeyboard
+{
+    
+    [self.view endEditing:YES];
+    
+}
+- (NSInteger)getKeyBoardHeight:(NSNotification *)notification
+{
+    NSDictionary* keyboardInfo = [notification userInfo];
+    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    NSInteger keyboardHeight = keyboardFrameBeginRect.size.height;
+    return keyboardHeight;
+}
+
+-(void) keyboardWillShow:(NSNotification*) notification
+{
+    NSInteger keyboardHeight;
+    keyboardHeight = [self getKeyBoardHeight:notification];
+    
+    [UIView animateWithDuration:1 animations:^{
+    
+    self.view.center = CGPointMake(screenCenterPoint.x,screenCenterPoint.y - keyboardHeight+20);
+    
+    }];
+    
+}
+
 #pragma Mark - button Actions
 - (IBAction)buttonActionCancel:(id)sender {
     

@@ -9,6 +9,9 @@
 
 #define kApplicationName @"Gizmeon Deals"
 
+#define screenHeight  [UIScreen mainScreen].bounds.size.height
+
+#define screenWidth  [UIScreen mainScreen].bounds.size.width
 
 //Fonts
 

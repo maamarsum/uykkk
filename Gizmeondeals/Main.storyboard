@@ -265,11 +265,11 @@
             <objects>
                 <viewController storyboardIdentifier="signup" title="Sign up" id="Tu1-TA-UhY" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z3X-UU-awM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="833"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="PB2-xm-1F5">
-                                <rect key="frame" x="0.0" y="0.0" width="321" height="1000"/>
+                                <rect key="frame" x="0.0" y="0.0" width="321" height="833"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="t74-97-nlN">
@@ -405,8 +405,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="KeH-dO-L1N"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="1000"/>
+                    <size key="freeformSize" width="320" height="833"/>
                     <connections>
+                        <outlet property="buttonCancel" destination="UcI-qF-Bxm" id="7pG-Z4-bhM"/>
+                        <outlet property="buttonSubmit" destination="giO-Ab-VmS" id="Dh3-Ur-Erq"/>
                         <outlet property="scrollViewMain" destination="PB2-xm-1F5" id="dy9-ok-xam"/>
                         <outlet property="textFieldAddress" destination="IVP-jT-NEf" id="Y9X-KW-g2J"/>
                         <outlet property="textFieldAddress2" destination="UG7-IO-A1F" id="AVB-OP-tDJ"/>
@@ -1899,7 +1901,7 @@
                                         <rect key="frame" x="108" y="8" width="107" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Sort">
-                                            <color key="titleColor" patternImage="02FE5E62-B69C-40E6-93A0-5A8A6468AA3B" colorSpace="pattern"/>
+                                            <color key="titleColor" patternImage="D05E0476-E0B4-4AC7-93E8-9EE3274D7F10" colorSpace="pattern"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -2110,7 +2112,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="02FE5E62-B69C-40E6-93A0-5A8A6468AA3B" width="320" height="460">
+        <image name="D05E0476-E0B4-4AC7-93E8-9EE3274D7F10" width="320" height="460">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

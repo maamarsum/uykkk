@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="labelTitleForView" destination="emX-Y9-vwg" id="K28-Ft-qS2"/>
                 <outlet property="tableViewMain" destination="ZTx-Kd-Z50" id="9cI-58-ANc"/>
+                <outlet property="view" destination="iN0-l3-epB" id="IHa-4v-Lxp"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -57,7 +58,6 @@
             <connections>
                 <outlet property="labelTitleForView" destination="emX-Y9-vwg" id="hop-1B-MEU"/>
                 <outlet property="tableViewMain" destination="ZTx-Kd-Z50" id="IqF-Lz-dxl"/>
-                <outlet property="view" destination="ZTx-Kd-Z50" id="cAR-kw-6gA"/>
             </connections>
             <point key="canvasLocation" x="318.5" y="214"/>
         </view>

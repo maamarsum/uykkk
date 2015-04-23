@@ -43,6 +43,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *textFieldPassword;
 @property (strong, nonatomic) IBOutlet UITextField *textFieldConfirmPassword;
 
+@property (weak, nonatomic) IBOutlet UIButton *buttonSubmit;
+@property (weak, nonatomic) IBOutlet UIButton *buttonCancel;
+
+
 - (IBAction)buttonActionCancel:(id)sender;
 - (IBAction)buttonActionSignUp:(id)sender;
 

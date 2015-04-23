@@ -19,6 +19,10 @@
 
 
 @interface ViewSelectCountryNLanguage : UIView<UITableViewDelegate,UITableViewDataSource>
+
+
+
+
 @property (weak, nonatomic) IBOutlet UITableView *tableViewMain;
 @property (strong, nonatomic) NSArray * arrayTableContents;
 -(void)reloadTable;

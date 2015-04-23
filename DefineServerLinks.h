@@ -53,6 +53,9 @@
 
 #define kServerLink_SignUp @"http://talenweave.com/qatardeals2/index.php?route=common/api/register"
 
+#define kServerLink_getZoneData @"http://talenweave.com/qatardeals2/index.php?route=common/api/getZoneDetailsMob"
+
+
 
 #define kServerLink_getreviewforproduct @"http://talenweave.com/qatardeals2/index.php?route=common/api/getReviewForProduct"
 #define kServerLink_addreview @"http://talenweave.com/qatardeals2/index.php?route=common/api/addReview"

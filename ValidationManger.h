@@ -15,4 +15,5 @@
 +(BOOL) checkStringsAreEqual :(NSString *) string1 :(NSString *) string2;
 +(BOOL) validateProduct :(ModelProduct *) product;
 +(BOOL) validateEmail :(NSString *) emailString;
++(BOOL) validateMobileNumber :(NSString *) mobileNumber;
 @end

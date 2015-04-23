@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KLCPopup.h"
 
-@protocol PopupDelegate <NSObject>
+@protocol PopupListDelegate <NSObject>
 
 
--(void) getValueFromList :(NSDictionary*) selectedValue;
+-(void) popupView :(id) sender getValueFromList :(NSDictionary*) selectedValue;
 
 @end
 
@@ -23,9 +24,10 @@
 -(void)reloadTable;
 @property (weak, nonatomic) IBOutlet UIView *view;
 
-@property(nonatomic,weak)id<PopupDelegate>delegate;
+@property(nonatomic,weak)id<PopupListDelegate>delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *labelTitleForView;
 
 -(void)setTitle :(NSString *)titleString;
+-(NSString*)getTitle;
 @end

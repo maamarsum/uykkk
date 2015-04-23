@@ -21,6 +21,7 @@
 @property (nonatomic,strong) NSArray *arrayMainMenuItems;
 @property (nonatomic,strong) UINavigationController * firstTabNavigationController;
 @property (nonatomic,strong) NSArray * arrayCountryList;
+@property (nonatomic,strong) NSString * selectedLanguage;
 
 +(AppGlobalVariables *)sharedInstance;
 @end

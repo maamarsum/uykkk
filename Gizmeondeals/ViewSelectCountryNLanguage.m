@@ -8,6 +8,7 @@
 
 #import "ViewSelectCountryNLanguage.h"
 
+
 @implementation ViewSelectCountryNLanguage
 @synthesize tableViewMain,arrayTableContents;
 
@@ -57,11 +58,11 @@
     
     [self addSubview:self.view];
     
-
     
     
 }
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
     
     
     if (arrayTableContents) {
@@ -98,9 +99,9 @@
     
     NSDictionary *dic = [arrayTableContents objectAtIndex:indexPath.row];
     
-    if ([self.delegate respondsToSelector:@selector(getValueFromList:)])
+    if ([self.delegate respondsToSelector:@selector(popupView:getValueFromList:)])
     {
-        [self.delegate getValueFromList:dic];
+        [self.delegate popupView:self getValueFromList:dic];
     }
 
     
@@ -112,10 +113,23 @@
     
     [tableViewMain reloadData];
     
+//    CGFloat tableHeight = 0.0f;
+//    for (int i = 0; i < [arrayTableContents count]; i ++) {
+//        tableHeight += [self tableView:tableViewMain heightForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+//    }
+//    tableViewMain.frame = CGRectMake(tableViewMain.frame.origin.x, tableViewMain.frame.origin.y, tableViewMain.frame.size.width, tableHeight);
+ 
+    [tableViewMain sizeToFit];
+    
 }
 -(void)setTitle :(NSString *)titleString
 {
     _labelTitleForView.text = titleString;
     
+}
+-(NSString*) getTitle
+{
+    
+    return _labelTitleForView.text;
 }
 @end

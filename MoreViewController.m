@@ -23,6 +23,7 @@
 {
     
     NSArray * arrayCountryList;
+    NSArray * arrayLanguageList;
     KLCPopup * popupCountry;
 }
 
@@ -52,7 +53,11 @@
     
     [self fetchCountryLIst];
     
+    NSDictionary * English = @{@"name":@"English",@"code":@"1"};
+    NSDictionary * Arabic = @{@"name":@"Arabic",@"code":@"2"};
     
+    
+    arrayLanguageList = [NSArray arrayWithObjects:English,Arabic, nil];
     
 }
 
@@ -143,7 +148,7 @@
         
         
         ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]init];
-        viewCountryList.frame = CGRectMake(0, 0, 200, 300);
+       // viewCountryList.frame = CGRectMake(0, 0, 200, 300);
         
         
         viewCountryList.arrayTableContents = arrayCountryList;
@@ -165,7 +170,7 @@
     }else{
         
         
-        [InterfaceManager DisplayAlertWithMessage:@"Debugmsg:Not loaded"];
+        [InterfaceManager DisplayAlertWithMessage:@"Debugmsg:Country List Not Found"];
     }
     
     
@@ -174,13 +179,57 @@
 }
 
 - (IBAction)ActionSelectLanguage:(id)sender {
+    
+    
+    
+        
+        ViewSelectCountryNLanguage * viewCountryList = [[ViewSelectCountryNLanguage alloc]init];
+        // viewCountryList.frame = CGRectMake(0, 0, 200, 300);
+        
+        
+        viewCountryList.arrayTableContents = arrayLanguageList;
+        
+        viewCountryList.delegate=self;
+        
+        [viewCountryList setTitle:@"Select Language"];
+        
+        popupCountry = [KLCPopup popupWithContentView:viewCountryList];
+        
+        
+        
+        [popupCountry show];
+        
+        
+        [viewCountryList reloadTable];
+        
+        
+   
+    
+    
 }
 
--(void)getValueFromList:(NSDictionary *)selectedValue
+-(void) popupView:(id)sender getValueFromList:(NSDictionary *)selectedValue
 {
     
+    
     [popupCountry dismiss:YES];
-    _labelSelectedCountry.text = [selectedValue valueForKey:@"name"];
+    
+    sender = (ViewSelectCountryNLanguage*)sender;
+    
+    if ([[sender getTitle] isEqualToString:@"Select Country"]) {
+        
+        _labelSelectedCountry.text = [selectedValue valueForKey:@"name"];
+        
+    }else if ([[sender getTitle] isEqualToString:@"Select Language"]){
+        
+        
+        _labelSelectedLanguage.text = [selectedValue valueForKey:@"name"];
+
+        [AppGlobalVariables sharedInstance].selectedLanguage =[selectedValue valueForKey:@"code"];
+        
+    }
+    
+    
     
     
     

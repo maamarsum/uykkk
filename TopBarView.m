@@ -19,55 +19,83 @@
 
 @implementation TopBarView
 
-/*
+{
+    NSString *searchstring;
+    
+    NSMutableArray * arraysearchdetails,*jsonarray;
+    UITableView * tableViewSearchResults;
+}
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
+    
+    CGContextRef context =UIGraphicsGetCurrentContext();
+    CGRect myFrame = self.bounds;
+    CGContextSetLineWidth(context, 10);
+    CGRectInset(myFrame, 5, 5);
+    [[UIColor grayColor] set];
+    
+    UIRectFrame(myFrame);
+    
+    
 }
-*/
+
+
+
+
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    NSString *searchstring;
-
-    NSMutableArray * arraysearchdetails,*jsonarray;
-    UITableView * tableViewSearchResults;
-}
-
-
- static TopBarView *instance=nil;
-- (id) awakeAfterUsingCoder:(NSCoder*)aDecoder {
-    
-    tableViewSearchResults.delegate=self;
-    tableViewSearchResults.dataSource=self;
-    _searchBarMain.delegate=self;
-    
-    
-    BOOL theThingThatGotLoadedWasJustAPlaceholder = ([[self subviews] count] == 0);
-    
-    if (theThingThatGotLoadedWasJustAPlaceholder) {
-        
-        TopBarView* theRealThing = [[self class] loadFromNib];
-        
-        // pass properties through
-        theRealThing.frame = self.frame;
-        theRealThing.autoresizingMask = self.autoresizingMask;
-        theRealThing.alpha = self.alpha;
-        theRealThing.hidden = self.hidden;
-        
-        
-        // convince ARC that we're legit
-        CFRelease((__bridge const void*)self);
-        CFRetain((__bridge const void*)theRealThing);
-        
-
-        
-        
-        return theRealThing;
+    self = [super initWithCoder:aDecoder];
+    if(!self){
+        return nil;
     }
-   // self.backgroundColor=[UIColor redColor];
-    return self;
+    
 
+    UINib* nib = [UINib nibWithNibName:NSStringFromClass([self class]) bundle:[NSBundle mainBundle]];
+    [nib instantiateWithOwner:self options:nil];
+    
+     self.view.frame = self.frame;
+    
+    [self addSubview:self.view];
+    
+    
+    return self;
 }
+// //static TopBarView *instance=nil;
+//- (id) awakeAfterUsingCoder:(NSCoder*)aDecoder {
+//    
+//    tableViewSearchResults.delegate=self;
+//    tableViewSearchResults.dataSource=self;
+//    _searchBarMain.delegate=self;
+//    
+//    
+//    BOOL theThingThatGotLoadedWasJustAPlaceholder = ([[self subviews] count] == 0);
+//    
+//    if (theThingThatGotLoadedWasJustAPlaceholder) {
+//        
+//        TopBarView* theRealThing = [[self class] loadFromNib];
+//        
+//        // pass properties through
+//        theRealThing.frame = self.frame;
+//        theRealThing.autoresizingMask = self.autoresizingMask;
+//        theRealThing.alpha = self.alpha;
+//        theRealThing.hidden = self.hidden;
+//        
+//        
+//        // convince ARC that we're legit
+//        CFRelease((__bridge const void*)self);
+//        CFRetain((__bridge const void*)theRealThing);
+//        
+//
+//        
+//        
+//        return theRealThing;
+//    }
+//   // self.backgroundColor=[UIColor redColor];
+//    return self;
+//
+//}
   - (IBAction)buttonActionMenu:(id)sender {
     
 //    UIViewController * owner = [self getSuperViewController];

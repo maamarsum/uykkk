@@ -19,5 +19,6 @@ IB_DESIGNABLE
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBarMain;
 
+@property (strong, nonatomic) IBOutlet UIView *view;
 
 @end

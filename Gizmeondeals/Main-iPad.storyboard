@@ -502,7 +502,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="et6-jV-f3Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1861" y="391"/>
+            <point key="canvasLocation" x="-2001" y="382"/>
         </scene>
         <!--Orderdetail View Controller-->
         <scene sceneID="Fpv-YY-xG0">
@@ -1097,9 +1097,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="BeT-9C-IRc" customClass="TopBarView">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
+                                <rect key="frame" x="0.0" y="0.0" width="317" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="FCQ-um-Ad1">
                                 <rect key="frame" x="2" y="101" width="315" height="433"/>
@@ -1244,7 +1244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7WL-Mp-DCG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1819" y="1046"/>
+            <point key="canvasLocation" x="-2001" y="1065"/>
         </scene>
         <!--Product View Controller-->
         <scene sceneID="wPv-ZB-d0d">
@@ -1602,6 +1602,11 @@
                                     <segue destination="aZs-MZ-YHR" kind="push" id="Cbf-DC-gVe"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="EhT-xC-y6c" customClass="TopBarView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" id="rpq-Qe-jCS">
                                 <rect key="frame" x="2" y="354" width="317" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1725,11 +1730,6 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.25882352941176473" green="0.29803921568627451" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="EhT-xC-y6c" customClass="TopBarView">
-                                <rect key="frame" x="0.0" y="0.0" width="319" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1901,7 +1901,7 @@
                                         <rect key="frame" x="108" y="8" width="107" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Sort">
-                                            <color key="titleColor" patternImage="55833AA3-B5F3-4197-AD43-B035F3ABF841" colorSpace="pattern"/>
+                                            <color key="titleColor" patternImage="8CACE84D-A91F-4A7B-8249-4905BA9B32B6" colorSpace="pattern"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -2112,7 +2112,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="55833AA3-B5F3-4197-AD43-B035F3ABF841" width="320" height="460">
+        <image name="8CACE84D-A91F-4A7B-8249-4905BA9B32B6" width="320" height="460">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

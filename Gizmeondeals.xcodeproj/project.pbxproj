@@ -62,6 +62,7 @@
 		3318D7811A7F8ED1003B60D6 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3318D7801A7F8ED1003B60D6 /* AccountViewController.m */; };
 		3318D7D51A833FF6003B60D6 /* DiscriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3318D7D41A833FF6003B60D6 /* DiscriptionViewController.m */; };
 		3318D7D81A888D0F003B60D6 /* OrderdetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3318D7D71A888D0E003B60D6 /* OrderdetailViewController.m */; };
+		333C46751AE9FD0C0017A618 /* ContactusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333C46741AE9FD0C0017A618 /* ContactusViewController.m */; };
 		3358857A1AE123C700A814F0 /* myaccounticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 335885751AE123C700A814F0 /* myaccounticon.png */; };
 		3358857B1AE123C700A814F0 /* mycarticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 335885761AE123C700A814F0 /* mycarticon.png */; };
 		3358857C1AE123C700A814F0 /* myhomeicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 335885771AE123C700A814F0 /* myhomeicon.png */; };
@@ -219,6 +220,8 @@
 		3318D7D41A833FF6003B60D6 /* DiscriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscriptionViewController.m; path = ../DiscriptionViewController.m; sourceTree = "<group>"; };
 		3318D7D61A888D0E003B60D6 /* OrderdetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderdetailViewController.h; path = ../OrderdetailViewController.h; sourceTree = "<group>"; };
 		3318D7D71A888D0E003B60D6 /* OrderdetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderdetailViewController.m; path = ../OrderdetailViewController.m; sourceTree = "<group>"; };
+		333C46731AE9FD0C0017A618 /* ContactusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContactusViewController.h; path = ../ContactusViewController.h; sourceTree = "<group>"; };
+		333C46741AE9FD0C0017A618 /* ContactusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContactusViewController.m; path = ../ContactusViewController.m; sourceTree = "<group>"; };
 		335885751AE123C700A814F0 /* myaccounticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myaccounticon.png; sourceTree = "<group>"; };
 		335885761AE123C700A814F0 /* mycarticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mycarticon.png; sourceTree = "<group>"; };
 		335885771AE123C700A814F0 /* myhomeicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = myhomeicon.png; sourceTree = "<group>"; };
@@ -522,6 +525,8 @@
 		3318D6481A70C4B8003B60D6 /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				333C46731AE9FD0C0017A618 /* ContactusViewController.h */,
+				333C46741AE9FD0C0017A618 /* ContactusViewController.m */,
 				33DE6F6F1AC3E13E00AC465C /* DealsbycategoryViewController.h */,
 				33DE6F701AC3E13E00AC465C /* DealsbycategoryViewController.m */,
 				9F4738841ABADEC700BA0EEB /* MyordersViewController.h */,
@@ -841,6 +846,7 @@
 				3318D7421A7C963C003B60D6 /* LoginViewController.m in Sources */,
 				B9B2F6401A9C925D004B40D2 /* AppGlobalVariables.m in Sources */,
 				B976376D1AB17B2C00C53F71 /* Processsectionheaderview.m in Sources */,
+				333C46751AE9FD0C0017A618 /* ContactusViewController.m in Sources */,
 				B976376A1AB17AF700C53F71 /* SectionHeaderView.m in Sources */,
 				9FD0D2031AB94CA6003F4F2C /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				3318D7D51A833FF6003B60D6 /* DiscriptionViewController.m in Sources */,

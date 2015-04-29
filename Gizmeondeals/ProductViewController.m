@@ -189,7 +189,9 @@
         product = thisProduct;
         
         
+        
         lbname.text = product.productName;
+       // lbprice.text =[NSString stringWithFormat:@"%lu",(unsigned long)reviewtabledata.count];
         
         lbprice.text =  [NSString stringWithFormat:@"%.2f",[product.productPrice floatValue]];
         
@@ -626,7 +628,7 @@
                     {
                         
                        
-                        [InterfaceManager DisplayAlertWithMessage:@"error in savinng"];
+                        [InterfaceManager DisplayAlertWithMessage:@"error in saving"];
                         
                       
                         
@@ -714,7 +716,7 @@
             
         } FailBlock:^(NSString *Error) {
             
-            [InterfaceManager DisplayAlertWithMessage:@"Internet connection  is not available connection"];
+            [InterfaceManager DisplayAlertWithMessage:@"Your net connection is too slow"];
             
             
         }];
@@ -797,6 +799,11 @@
                 cellForReviewList=[tableCellArray objectAtIndex:0];
                 
                 
+                cellForReviewList.contentView.layer.cornerRadius = 10;
+                cellForReviewList.contentView.layer.masksToBounds = YES;
+                
+                
+                
                 ModelProduct * productdetails = [ModelProduct new];
                 productdetails=[reviewtabledata objectAtIndex:indexPath.row];
                 
@@ -808,6 +815,7 @@
                 cellForReviewList.reviewDate.text = productdetails.productReviewDateAndTime;
                 cellForReviewList.reviewRating.text = productdetails.productReviewRating;
                 cellForReviewList.reviewText.text = productdetails.productReviewText;
+                
             }
         }
     
@@ -820,7 +828,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView== reviewtable) {
-        return 100;
+        return 80;
     }else
         return 30;
 }

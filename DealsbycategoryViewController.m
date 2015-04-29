@@ -424,7 +424,7 @@
         
         
         cellSort.textLabel.text = [arraySortOptions objectAtIndex:indexPath.row];
-        
+        cellSort.backgroundColor=[UIColor grayColor];
         return cellSort;
         
     }
@@ -437,6 +437,7 @@
         UITableViewCell * cellFilterCategory = [tableView dequeueReusableCellWithIdentifier:@"cellFilterCategory" forIndexPath:indexPath];
         
         cellFilterCategory.textLabel.text=[keys objectAtIndex:indexPath.row];
+        cellFilterCategory.backgroundColor=[UIColor grayColor];
         
         return cellFilterCategory;
         
@@ -448,6 +449,7 @@
         
         cellFilterFinalCategory.textLabel.text=[[dictionaryFilterCategory valueForKey:keys[selectedCategoryIndex]] objectAtIndex:indexPath.row];
         
+        cellFilterFinalCategory.backgroundColor=[UIColor grayColor];
         return cellFilterFinalCategory;
     }
     

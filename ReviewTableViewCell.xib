@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="110" id="KGk-i7-Jjw" customClass="ReviewTableViewCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="ReviewTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="428" height="110"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -33,19 +33,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6j-k2-ZL6">
-                        <rect key="frame" x="17" y="50" width="403" height="52"/>
+                        <rect key="frame" x="17" y="44" width="403" height="52"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="rating" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGW-qP-tiV">
-                        <rect key="frame" x="293" y="21" width="115" height="21"/>
+                        <rect key="frame" x="278" y="21" width="115" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.25941124300000001" green="0.48631453000000002" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             </tableViewCellContentView>
             <connections>
                 <outlet property="reviewDate" destination="eZ7-zw-XF6" id="Yoy-1G-b40"/>
@@ -53,7 +53,7 @@
                 <outlet property="reviewRating" destination="QGW-qP-tiV" id="s5Q-F9-k97"/>
                 <outlet property="reviewText" destination="k6j-k2-ZL6" id="Xoy-GK-3uw"/>
             </connections>
-            <point key="canvasLocation" x="254" y="312"/>
+            <point key="canvasLocation" x="254" y="308"/>
         </tableViewCell>
     </objects>
 </document>

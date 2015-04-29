@@ -16,11 +16,14 @@
 #import "ModelProduct.h"
 #import "DefineServerLinks.h"
 #import "ProductViewController.h"
-
+#import "KLCPopup.h"
+#import "DealstableviewcellTableViewCell.h"
 @implementation TopBarView
 
 {
     NSString *searchstring;
+    
+    KLCPopup * popupCountry;
     
     NSMutableArray * arraysearchdetails,*jsonarray;
     UITableView * tableViewSearchResults;
@@ -144,12 +147,21 @@
     
     
     
-    
 }
 -(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
     
-    
+    searchstring=searchBar.text;
+   
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    tableViewSearchResults=[[UITableView alloc]initWithFrame:CGRectMake(0, 80, 320, 375)];
+    tableViewSearchResults.rowHeight=45;
+    tableViewSearchResults.delegate=(id)self;
+    tableViewSearchResults.dataSource=(id)self;
+    [self.view addSubview:tableViewSearchResults];
+    [self loadsearchdetails];
     
 }
 
@@ -235,7 +247,7 @@
         
     } FailBlock:^(NSString *Error) {
         
-        [InterfaceManager DisplayAlertWithMessage:@"Invalid Response, Entered into Fail Block"];
+        [InterfaceManager DisplayAlertWithMessage:@"Your net connection is too slow"];
         
         
     }];
@@ -249,7 +261,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     
-    return arraysearchdetails.count;
+    
+    if (tableViewSearchResults) {
+         return arraysearchdetails.count;
+    }
+    return 0;
     
     
 }
@@ -258,121 +274,107 @@
 {
     
     
-    
-    UITableViewCell * cellSearchProduct = [tableView dequeueReusableCellWithIdentifier:@"cellSearch"];
-    
-    
-    
-    if (!cellSearchProduct) {
-        
-        cellSearchProduct = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellSearch"];
+    if (tableView==tableViewSearchResults) {
         
         
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+      
+        
+        DealstableviewcellTableViewCell * cellForDealsList= (DealstableviewcellTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"dealsList"];
+        
+        //if (cellFordealsList==NULL||cellForLastCell==NULL) {
+        NSArray *tableCellArray =[[NSBundle mainBundle]loadNibNamed:@"DealstableviewcellTableViewCell" owner:self options:nil];
+        
+        
+        if ([indexPath row]<arraysearchdetails.count) {
+            
+            cellForDealsList=[tableCellArray objectAtIndex:0];
+            
+            
+            ModelProduct * productdetails = [ModelProduct new];
+            productdetails=[arraysearchdetails objectAtIndex:indexPath.row];
+            
+            // UIImageView *imageViewProductImage = (UIImageView *)[cellForDealsList viewWithTag:201];
+            /*
+             UILabel * labeldealsName = (UILabel *)[cellFordealsList viewWithTag:202];
+             UILabel * labeldealsPrice = (UILabel *)[cellFordealsList viewWithTag:203];
+             UILabel * labeldealsmodel = (UILabel *)[cellFordealsList viewWithTag:204];
+             */
+            
+            cellForDealsList.name.text =  productdetails.productName;
+            //cellForDealsList.price.text=@"10";
+            cellForDealsList.price.text = [NSString stringWithFormat:@"%.2f",[productdetails.productPrice floatValue]];
+            cellForDealsList.model.text = productdetails.productModel;
+            
+            
+            if (productdetails.productImage==nil) {
+                
+                cellForDealsList.image.image = [UIImage imageNamed:@"Men_at_work.png"];
+                //Pending
+                
+                // dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                
+                ModelProduct * tempProduct = [arraysearchdetails objectAtIndex:indexPath.row];
+                
+                NSURL * imgUrl =[NSURL URLWithString:[@"http://talenweave.com/qatardeals2/image/" stringByAppendingString:productdetails.productImageUrl]];
+                
+                NSData *downloadedData = [NSData dataWithContentsOfURL:imgUrl];
+                
+                tempProduct.productImage = [UIImage imageWithData:downloadedData];
+                
+                
+                
+                [arraysearchdetails replaceObjectAtIndex:indexPath.row withObject:tempProduct];
+                
+                
+                
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    
+                    //    NSData *imgData=[dictionaryImageDataModel valueForKey:@"imageData"];
+                    ModelProduct * tempProduct = [arraysearchdetails objectAtIndex:indexPath.row];
+                    
+                    if (tempProduct.productImage != nil) {
+                        
+                        
+                        cellForDealsList.image.image = tempProduct.productImage;
+                        
+                    }
+                    
+                    NSLog(@"Image Loaded %ld",(long)indexPath.row);
+                    
+                });
+                
+                
+                
+                
+                
+                
+                
+                
+            }else{
+                
+                
+                cellForDealsList.image.image = productdetails.productImage;
+                
+                cellForDealsList.imageView.contentMode=UIViewContentModeScaleAspectFill;
+                
+                
+                
+            }
+            
+            
+        }
+    
+    
+       return cellForDealsList;
     }
-    
-    ModelProduct * product = [arraysearchdetails objectAtIndex:indexPath.row];
-    
-    cellSearchProduct.textLabel.text = product.productName;
-    
-    
-    return cellSearchProduct;
-//    DealstableviewcellTableViewCell * cellFordealsList= (DealstableviewcellTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"dealsList"];
-//    
-//    //if (cellFordealsList==NULL||cellForLastCell==NULL) {
-//    NSArray *tableCellArray =[[NSBundle mainBundle]loadNibNamed:@"DealstableviewcellTableViewCell" owner:self options:nil];
-//    
-//    
-//    if ([indexPath row]<arraysearchdetails.count) {
-//        cellFordealsList=[tableCellArray objectAtIndex:0];
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//        ModelProduct * productdetails = [ModelProduct new];
-//        productdetails=[arraysearchdetails objectAtIndex:indexPath.row];
-//        
-//        UIImageView *imageViewProductImage = (UIImageView *)[cellFordealsList viewWithTag:201];
-//        /*
-//         UILabel * labeldealsName = (UILabel *)[cellFordealsList viewWithTag:202];
-//         UILabel * labeldealsPrice = (UILabel *)[cellFordealsList viewWithTag:203];
-//         UILabel * labeldealsmodel = (UILabel *)[cellFordealsList viewWithTag:204];
-//         */
-//        
-//        cellFordealsList.name.text =  productdetails.productName;
-//        //  cellFordealsList.price.text=@"10";
-//        NSLog(@"nothing to diplay%@",productdetails.productPrice);
-//        
-//        
-//        
-//        cellFordealsList.price.text = productdetails.productPrice;
-//        
-//        cellFordealsList.model.text = productdetails.productModel;
-//        
-//        
-//        if (productdetails.productImage==nil) {
-//            
-//            imageViewProductImage.image = [UIImage imageNamed:@"Men_at_work.png"];
-//            //Pending
-//            
-//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//                
-//                
-//                ModelProduct * tempProduct = [arraysearchdetails objectAtIndex:indexPath.row];
-//                
-//                NSURL * imgUrl =[NSURL URLWithString:[@"http://talenweave.com/qatardeals2/image/" stringByAppendingString:productdetails.productImageUrl]];
-//                // NSLog(@"%d",indexPath.row);
-//                
-//                NSData *downloadedData = [NSData dataWithContentsOfURL:imgUrl];
-//                
-//                tempProduct.productImage = [UIImage imageWithData:downloadedData];
-//                
-//                [arraysearchdetails replaceObjectAtIndex:indexPath.row withObject:tempProduct];
-//                
-//                
-//                
-//                dispatch_async(dispatch_get_main_queue(), ^{
-//                    
-//                    
-//                    //    NSData *imgData=[dictionaryImageDataModel valueForKey:@"imageData"];
-//                    ModelProduct * tempProduct = [arraysearchdetails objectAtIndex:indexPath.row];
-//                    
-//                    if (tempProduct.productImage != nil) {
-//                        
-//                        
-//                        cellFordealsList.image.image = tempProduct.productImage;
-//                        
-//                    }
-//                    
-//                    
-//                    
-//                    NSLog(@"Image Loaded %ld",(long)indexPath.row);
-//                    
-//                });
-//                
-//                
-//                
-//            });
-//            
-//            
-//            
-//            
-//        }else{
-//            
-//            // cellFordealsList.image.image = productdetails.productImage;
-//        }
-//        
-//        
-//        
-//        
-//    }
-//    
-//    return cellFordealsList;
+    return 0;
+
 }
-
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

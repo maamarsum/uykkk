@@ -156,11 +156,23 @@
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    tableViewSearchResults=[[UITableView alloc]initWithFrame:CGRectMake(0, 80, 320, 375)];
+    tableViewSearchResults=[[UITableView alloc]initWithFrame:CGRectMake(searchBar.frame.origin.x, searchBar.frame.origin.y+searchBar.frame.size.height, searchBar.frame.size.width, 375)];
+    
     tableViewSearchResults.rowHeight=45;
+    
     tableViewSearchResults.delegate=(id)self;
     tableViewSearchResults.dataSource=(id)self;
-    [self.view addSubview:tableViewSearchResults];
+    
+    tableViewSearchResults.scrollEnabled=YES;
+    
+    
+    UIViewController *VC = [self getSuperViewController];
+    
+    
+    
+    [VC.view addSubview:tableViewSearchResults];
+    
+    
     [self loadsearchdetails];
     
 }
@@ -379,7 +391,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row<arraysearchdetails.count) {
-        return 140;
+        return 120;
     }else
         return 40;
 }

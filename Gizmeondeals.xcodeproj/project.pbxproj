@@ -70,6 +70,8 @@
 		333C46811AEA14A60017A618 /* mywishlisticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 333C467C1AEA14A60017A618 /* mywishlisticon.png */; };
 		333D62801AEDF1B900A8960E /* grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 333D627E1AEDF1B900A8960E /* grid.png */; };
 		333D62811AEDF1B900A8960E /* table.png in Resources */ = {isa = PBXBuildFile; fileRef = 333D627F1AEDF1B900A8960E /* table.png */; };
+		33421B161AF0C0A000E65540 /* 5starsgray.png in Resources */ = {isa = PBXBuildFile; fileRef = 33421B131AF0C0A000E65540 /* 5starsgray.png */; };
+		33421B171AF0C0A000E65540 /* StarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33421B151AF0C0A000E65540 /* StarRatingView.m */; };
 		3364EEE81AC9374E00E9635A /* ReviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3364EEE61AC9374E00E9635A /* ReviewTableViewCell.m */; };
 		3364EEE91AC9374E00E9635A /* ReviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3364EEE71AC9374E00E9635A /* ReviewTableViewCell.xib */; };
 		3364EF001AC96EFB00E9635A /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 3364EEFE1AC96EFB00E9635A /* Icon-40.png */; };
@@ -233,6 +235,9 @@
 		333C467C1AEA14A60017A618 /* mywishlisticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mywishlisticon.png; sourceTree = "<group>"; };
 		333D627E1AEDF1B900A8960E /* grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grid.png; sourceTree = "<group>"; };
 		333D627F1AEDF1B900A8960E /* table.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = table.png; sourceTree = "<group>"; };
+		33421B131AF0C0A000E65540 /* 5starsgray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5starsgray.png; sourceTree = "<group>"; };
+		33421B141AF0C0A000E65540 /* StarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StarRatingView.h; sourceTree = "<group>"; };
+		33421B151AF0C0A000E65540 /* StarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StarRatingView.m; sourceTree = "<group>"; };
 		3364EEE51AC9374E00E9635A /* ReviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewTableViewCell.h; sourceTree = "<group>"; };
 		3364EEE61AC9374E00E9635A /* ReviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewTableViewCell.m; sourceTree = "<group>"; };
 		3364EEE71AC9374E00E9635A /* ReviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewTableViewCell.xib; sourceTree = "<group>"; };
@@ -592,6 +597,7 @@
 		3318D73B1A79F93F003B60D6 /* views+xib */ = {
 			isa = PBXGroup;
 			children = (
+				33421B031AF0BBFF00E65540 /* Rating */,
 				9FF628311AE4CDE9000DA334 /* ViewSelectCountryNLanguage.h */,
 				9FF628321AE4CDE9000DA334 /* ViewSelectCountryNLanguage.m */,
 				9FF628341AE4CE23000DA334 /* ViewSelectCountryNLanguage.xib */,
@@ -641,6 +647,16 @@
 				3318D7501A7C9C59003B60D6 /* BinSystemsAppManager.m */,
 			);
 			name = "App manager";
+			sourceTree = "<group>";
+		};
+		33421B031AF0BBFF00E65540 /* Rating */ = {
+			isa = PBXGroup;
+			children = (
+				33421B131AF0C0A000E65540 /* 5starsgray.png */,
+				33421B141AF0C0A000E65540 /* StarRatingView.h */,
+				33421B151AF0C0A000E65540 /* StarRatingView.m */,
+			);
+			name = Rating;
 			sourceTree = "<group>";
 		};
 		335885741AE123A100A814F0 /* tabbaricons */ = {
@@ -789,6 +805,7 @@
 				3318D7731A7F4BB5003B60D6 /* contactus.png in Resources */,
 				3318D6751A70C919003B60D6 /* menuleft.png in Resources */,
 				3318D76B1A7F46D8003B60D6 /* user.png in Resources */,
+				33421B161AF0C0A000E65540 /* 5starsgray.png in Resources */,
 				B9D6CCD21AB6D8D600DF9508 /* wishlisticon.png in Resources */,
 				B9D6CCD11AB6D8D600DF9508 /* usericon.png in Resources */,
 				B99F0E791AA03B6800C575DE /* TopBarView.xib in Resources */,
@@ -895,6 +912,7 @@
 				9FD0D2191AB94CF7003F4F2C /* LeftMenuViewController.m in Sources */,
 				9FD0D2041AB94CA6003F4F2C /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				33DE6F711AC3E13E00AC465C /* DealsbycategoryViewController.m in Sources */,
+				33421B171AF0C0A000E65540 /* StarRatingView.m in Sources */,
 				9FD0D2071AB94CA6003F4F2C /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				3318D7511A7C9C59003B60D6 /* BinSystemsAppManager.m in Sources */,
 				3318D62C1A70BAE7003B60D6 /* BinSystemsServerConnectionHandler.m in Sources */,

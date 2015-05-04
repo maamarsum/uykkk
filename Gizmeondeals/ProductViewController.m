@@ -146,19 +146,26 @@
 
 - (IBAction)reviewButtonAction:(id)sender{
     
-    UIButton *button=sender;
-    if (button.tag == 0) {
-        [ReviewView setHidden:NO];
-        
-        
-        
-        button.tag=1;
-        
-    }else if (button.tag == 1){
-        
-        [ReviewView setHidden:YES];
-        button.tag=0;
-    }
+    
+    
+    ReviewViewController *revVc  =   [self.storyboard instantiateViewControllerWithIdentifier:@"reviewview"];
+    
+    revVc.productId=getproduct_id;
+    [self presentViewController:revVc animated:YES completion:nil];
+    
+//    UIButton *button=sender;
+//    if (button.tag == 0) {
+//        [ReviewView setHidden:NO];
+//        
+//        
+//        
+//        button.tag=1;
+//        
+//    }else if (button.tag == 1){
+//        
+//        [ReviewView setHidden:YES];
+//        button.tag=0;
+//    }
    
     
     
@@ -200,12 +207,12 @@
         textviewfield.text =  product.productDescription;
         
         if (product.productQuantity == 0) {
-            //lbAvailability.text =  @"out of stock";
-            _labelanimationarray=[[NSMutableArray alloc]initWithObjects:@"out of stock", nil];
+            lbAvailability.text =  @"out of stock";
+            //_labelanimationarray=[[NSMutableArray alloc]initWithObjects:@"out of stock", nil];
         }
         else
-        {
-            _labelanimationarray=[[NSMutableArray alloc]initWithObjects:@"Available", nil];
+        {lbAvailability.text =  @"Available";
+            //_labelanimationarray=[[NSMutableArray alloc]initWithObjects:@"Available", nil];
            // [self addanimation];
 
         }
@@ -282,38 +289,8 @@
         
         
     }
-    [self addanimation];
-    
-}
--(void)addanimation
-{
-    animatedindex=0;
-    lbAvailability.text=[_labelanimationarray objectAtIndex:animatedindex];
-    NSTimer*   timer=[NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(performTransition) userInfo:nil repeats:YES];
-}
-
--(void)performTransition{
-    
-    lbAvailability.text=[_labelanimationarray objectAtIndex:animatedindex];
     
     
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.25;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-    
-    
-    
-    transition.type=kCATransitionPush;
-    transition.subtype=kCATransitionFade;
-    
-    transition.delegate = self;
-    
-    [lbAvailability.layer addAnimation:transition forKey:nil];
-    animatedindex++;
-    if (animatedindex==[_labelanimationarray count]) {
-        animatedindex=0;
-    }
-
 }
     -(void)dismissKeyBoard{
         [textViewQuantity resignFirstResponder];
@@ -498,17 +475,7 @@
     
     
     }
-    - (IBAction)Buttonbuynow:(id)sender {
-        
-        UIButton *button=sender;
-        if (button.tag == 0) {
-            [expandview setHidden:NO];
-            button.tag=1;
-        }else if (button.tag == 1){
-            
-            [expandview setHidden:YES];
-            button.tag=0;
-        }
+
         
         
         /*
@@ -540,7 +507,7 @@
         
         
         // [self performSegueWithIdentifier:@"HomeToGeneralAccountInfoSegue" sender:nil];
-    }
+
          
     
     - (IBAction)Buttonaddreview:(id)sender {
@@ -586,7 +553,7 @@
             NSString *rating = @"5";
             NSLog(@"%@",getproduct_id);
             NSString *reviewname=textfieldreviewname.text;
-             NSString *reviewtext=textfieldreviewname.text;
+             NSString *reviewtext=textviewreview.text;
             
             
             NSString *PostData= [NSString stringWithFormat:@"customer_id=%@&product_id=%@&name=%@&review=%@&rating=%@",userId,thisProduct.productId,reviewname,reviewtext,rating];
@@ -612,38 +579,39 @@
                 
                 
                 
-                if (Result1) {
+                if ([Result1 valueForKey:@"status"]) {
                     
-                    NSString * status = [Result1 valueForKey:@"status"];
                     
-                    if ([status isEqualToString:@"Success"])
-                    {
+                    NSLog(@"result %@",Result1);
+                    
+                    
+                    
                         
                         
                         
                         
-                         [InterfaceManager DisplayAlertWithMessage:[NSString stringWithFormat:@"Message:%@",[Result1  valueForKey:@"message"]]];
-                       
-                    }else
-                    {
+                }else{
+                
+                    
+                    
                         
                        
                         [InterfaceManager DisplayAlertWithMessage:@"error in saving"];
                         
                       
-                        
-                        
-                        
-                    }
-                    
-                    
-                    
                 }
+                
+                        
+                
+                    
+                    
+                    
+             
                 
                 
             } FailBlock:^(NSString *Error) {
                 
-                [InterfaceManager DisplayAlertWithMessage:@"Internet connection  is not available connection"];
+                [InterfaceManager DisplayAlertWithMessage:@"Your net connection is too slow"];
                 
                 
             }];
